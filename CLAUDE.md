@@ -1,11 +1,15 @@
 # vasectomy-australia-lp
 
-## HARD REQUIREMENT: this site must not be indexed by search engines
+## HARD REQUIREMENT: this site must not be indexed until launch
 
-Every page of this site must be excluded from search engine indexes. This is a
-standing requirement — it applies to every page added, every route, every
-deployment (preview and production), and must not be removed or weakened
-without an explicit instruction from the repository owner.
+Every page of this site must be excluded from search engine indexes. The page
+is expected to be **publicly reachable via its direct link** — that is fine and
+intended. What must not happen is the URL appearing in search results.
+
+This is **temporary but standing**: it applies to every page added, every route,
+and every deployment (preview and production), and stays in force until the
+repository owner explicitly instructs that indexing be allowed. It must not be
+removed or weakened as a side effect of any other work.
 
 ### What to implement, on every page and every deployment
 
@@ -28,16 +32,35 @@ single most common way a "noindexed" page ends up indexed anyway.
 Crawlers must be **allowed to fetch** these pages so that they can read the
 `noindex` directive and drop the URL.
 
+### Because the noindex is temporary, it must lift as a single switch
+
+Lifting the noindex at launch must be a one-line change, not a hunt through the
+codebase. Implement both layers above from **one shared flag** (a single
+constant or environment variable, e.g. `ALLOW_INDEXING`), defaulting to "not
+indexable", so that:
+
+- the header, the meta tag, and robots.txt are all driven by that one value;
+- no page can be added that silently misses a layer;
+- production can be flipped to indexable without touching preview deployments.
+
+Preview/staging deployments must **stay** noindexed even after launch.
+
 ### noindex is not privacy
 
 `noindex` is a request that well-behaved search engines honour. It does not
-prevent access. Anyone with the URL can still open the page, and scrapers that
-ignore robots directives will still read it. If the content must actually be
-private, put authentication or platform-level deployment protection in front
-of it — do not treat `noindex` as a substitute.
+prevent access — that is acceptable here, since the page is meant to be shared
+by link. But be aware: anyone with the URL can open the page, scrapers that
+ignore robots directives will still read it, and the link may be forwarded
+onward. Do not put anything on the page that would be harmful to have public,
+and do not treat `noindex` as a substitute for authentication.
 
 ### Before any launch
 
 Removing the noindex is a deliberate, owner-approved step. Never remove these
 controls as part of unrelated work, and never assume a "go live" instruction
 includes permission to allow indexing — confirm it explicitly.
+
+Note for whoever flips the switch: removing `noindex` makes the page *eligible*
+for indexing, it does not request it. Indexing then takes days-to-weeks. If the
+page must rank promptly at launch, that is the point to add a sitemap and
+request indexing in Search Console — not before.
