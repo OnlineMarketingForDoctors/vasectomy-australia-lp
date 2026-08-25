@@ -12,7 +12,7 @@ export const site = {
   phoneHref: "tel:1800764763",
   email: "info@vasectomyaustralia.com.au",
   /** Google rating shown in the hero badge. Update both values together. */
-  rating: { score: "5.0", count: 361 },
+  rating: { score: "5.0", count: 612 },
   /** Fallback booking page for clinics without their own online calendar. */
   bookingFallback: "https://vasectomyaustralia.com.au/book-online/",
   phoneConsult: "https://bit.ly/vas-appt",
@@ -78,6 +78,7 @@ export const procedure = [
 
 export const reasons = [
   "Every one of our doctors trained under world-leading vasectomists",
+  "Dr Geoff and Dr Matt have each performed more than 25,000 vasectomies",
   "Our doctors work in vasectomy full time — over 9,000 cases a year between them",
   "A gentle technique, so recovery is fast and downtime is minimal",
   "No-scalpel and open-ended, which lowers the rate of bruising and bleeding",
@@ -93,14 +94,14 @@ export const doctors = [
     name: "Dr Geoff Cashion",
     role: "Founder, Vasectomy Australia",
     img: "/img/dr-geoff.webp",
-    bio: "Geoff founded Vasectomy Australia and has spent his career narrowing his practice to this one procedure. He trained under world-leading vasectomists and now performs thousands a year. Patients most often describe him as calm — which, given what they came in for, is the compliment that matters.",
+    bio: "Geoff founded Vasectomy Australia and has spent his career narrowing his practice to this one procedure — more than 25,000 vasectomies to date. He trained under world-leading vasectomists. Patients most often describe him as calm, which, given what they came in for, is the compliment that matters.",
   },
   {
     id: "matt",
     name: "Dr Matt Valentine",
     role: "Vasectomy Specialist",
     img: "/img/dr-matt.webp",
-    bio: "Matt works full time in vasectomy across our Sydney clinics. He is a specialist rather than a GP who occasionally does these, and he is unhurried about questions — the consult is where most men stop being nervous, so he treats it as part of the procedure rather than a formality.",
+    bio: "Matt works full time in vasectomy across our Sydney clinics and has performed more than 25,000 of them. He is a specialist rather than a GP who occasionally does these, and he is unhurried about questions — the consult is where most men stop being nervous, so he treats it as part of the procedure rather than a formality.",
   },
 ];
 

@@ -76,6 +76,14 @@ export default function Header() {
               </span>
             </a>
 
+            <button
+              type="button"
+              onClick={open}
+              className="u-btn u-btn-primary h-9 shrink-0 whitespace-nowrap px-3 text-[12.5px] sm:h-10 sm:px-4 sm:text-[13px] md:h-11 md:px-6 md:text-[15px]"
+            >
+              Book online
+            </button>
+
             {/* Mobile: icon only. */}
             <a
               href={site.phoneHref}
@@ -89,14 +97,6 @@ export default function Header() {
                 />
               </svg>
             </a>
-
-            <button
-              type="button"
-              onClick={open}
-              className="u-btn u-btn-primary h-9 shrink-0 whitespace-nowrap px-3 text-[12.5px] sm:h-10 sm:px-4 sm:text-[13px] md:h-11 md:px-6 md:text-[15px]"
-            >
-              Book online
-            </button>
 
             <button
               type="button"

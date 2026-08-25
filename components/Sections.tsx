@@ -10,18 +10,27 @@ import { useBooking } from "./BookingModal";
 const FACTS = [
   { k: "15 min", v: "in the procedure room, under local anaesthetic" },
   { k: ">99%", v: "success rate with no-scalpel vasectomy" },
-  { k: "9,000+", v: "vasectomies performed by our doctors each year" },
+  { k: "25,000+", v: "vasectomies performed by each of our two doctors" },
   { k: "~7 days", v: "for most men to feel back to normal" },
 ];
 
 export function Facts() {
   return (
-    <section className="border-t border-line bg-paper py-14 md:py-16">
-      <div className="u-wrap grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+    <section className="bg-teal-deep py-16 text-bone md:py-20">
+      <div className="u-wrap grid grid-cols-2 gap-x-8 gap-y-11 lg:grid-cols-4">
         {FACTS.map((f, i) => (
-          <div key={f.k} data-reveal style={{ ["--reveal-delay" as string]: `${i * 70}ms` }}>
-            <p className="u-display text-[clamp(1.9rem,4vw,2.6rem)] text-teal">{f.k}</p>
-            <p className="mt-2 max-w-[24ch] text-[14.5px] leading-snug text-ink-soft">{f.v}</p>
+          <div
+            key={f.k}
+            data-reveal
+            style={{ ["--reveal-delay" as string]: `${i * 70}ms` }}
+            className="border-t border-bone/20 pt-5"
+          >
+            <p className="u-display text-[clamp(2rem,4.2vw,2.9rem)] leading-none text-bone">
+              {f.k}
+            </p>
+            <p className="mt-3 max-w-[24ch] text-[14.5px] leading-snug text-bone/70">
+              {f.v}
+            </p>
           </div>
         ))}
       </div>
@@ -41,9 +50,10 @@ export function Doctors() {
             Two specialists who do this all day, every day.
           </h2>
           <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
-            Not a GP who fits in the occasional vasectomy. Between them our
-            doctors perform more than 9,000 a year, and both trained under
-            world-leading vasectomists.
+            Not a GP who fits in the occasional vasectomy. Dr Geoff and Dr Matt
+            have each performed more than 25,000 vasectomies, they do over
+            9,000 a year between them, and both trained under world-leading
+            vasectomists.
           </p>
         </div>
 
@@ -203,9 +213,7 @@ export function Recovery() {
           <div>
             <div className="max-w-xl" data-reveal>
               <p className="u-eyebrow">Afterwards</p>
-              <h2 className="u-display mt-3 text-headline">
-                The week after, honestly.
-              </h2>
+              <h2 className="u-display mt-3 text-headline">The week after.</h2>
               <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
                 Recovery is usually straightforward, and the part you control
                 matters most: no heavy lifting for the first week.
@@ -401,14 +409,14 @@ export function ClosingCta() {
   return (
     <section className="relative isolate overflow-hidden">
       <Image
-        src="/img/sydney-cta.webp"
+        src="/img/sydney-harbour-cta.webp"
         alt=""
         aria-hidden="true"
         fill
         sizes="100vw"
         className="-z-10 object-cover"
       />
-      <div className="absolute inset-0 -z-10 bg-teal-deep/80" aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 bg-teal-deep/68" aria-hidden="true" />
 
       <div className="u-wrap py-24 text-center md:py-32">
         <h2 className="u-display mx-auto max-w-[16ch] text-[clamp(2.2rem,5.2vw,4rem)] text-bone" data-reveal>

@@ -62,7 +62,7 @@ export default function Hero() {
             }}
           />
           <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-48"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-56"
             style={{
               background:
                 "linear-gradient(to bottom, rgba(251,249,244,0) 0%, rgba(251,249,244,.72) 55%, #fbf9f4 100%)",
@@ -70,7 +70,7 @@ export default function Hero() {
           />
         </div>
 
-        <div className="u-wrap relative -mt-10 bg-paper pb-10">
+        <div className="u-wrap relative bg-paper pt-7 pb-10">
           <GoogleBadge />
           <Headline className="mt-5 text-[clamp(2.25rem,9.5vw,3.1rem)] text-ink" />
           <p className="mt-4 text-[17px] leading-relaxed text-ink-soft">

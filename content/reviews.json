@@ -1,7 +1,11 @@
 {
   "_source": "Transcribed verbatim from Google review screenshots in assets/reviews/ (captured 21 Aug 2026).",
   "_note": "Text is reproduced exactly as written by the reviewer, including their spelling of the doctors' names. Do not edit the body text: these are real published reviews.",
-  "aggregate": { "rating": 5.0, "count": 361, "platform": "Google" },
+  "aggregate": {
+    "rating": 5.0,
+    "count": 612,
+    "platform": "Google"
+  },
   "reviews": [
     {
       "id": "bill-faraj",
