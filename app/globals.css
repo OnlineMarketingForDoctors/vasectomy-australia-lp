@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Vasectomy Australia design system.
+   Palette and type are lifted from vasectomy-australia.vercel.app so this
+   landing page reads as the same brand.
+   --------------------------------------------------------------------------- */
+@theme {
+  --color-paper: #fbf9f4;
+  --color-bone: #f5f1e9;
+  --color-sand: #ece5d7;
+  --color-line: #e2dbcd;
+  --color-ink: #1a1916;
+  --color-ink-soft: #57534a;
+  --color-teal: #11514a;
+  --color-teal-deep: #0b332e;
+  --color-clay: #bd6038;
+  --color-clay-soft: #d98a5f;
+
+  --font-display: var(--font-fraunces), "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --text-display: clamp(2.75rem, 6.2vw, 5.5rem);
+  --text-headline: clamp(2rem, 4vw, 3.25rem);
+  --text-title: clamp(1.5rem, 2.4vw, 2.125rem);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--color-teal);
+    color: var(--color-bone);
+  }
+  /* One visible focus treatment everywhere, on the brand's own teal. */
+  :focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .u-wrap {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 480px) {
+    .u-wrap { padding-inline: 1.25rem; }
+  }
+  @media (min-width: 768px) {
+    .u-wrap { padding-inline: 2.5rem; }
+  }
+
+  /* Small caps label used as the section eyebrow throughout. */
+  .u-eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-clay);
+  }
+
+  .u-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    font-variation-settings: "SOFT" 0, "WONK" 0;
+  }
+
+  .u-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+    transition: transform 0.18s cubic-bezier(0.2, 0, 0.2, 1),
+                background-color 0.18s ease, color 0.18s ease,
+                box-shadow 0.18s ease;
+  }
+  .u-btn:hover { transform: translateY(-1px); }
+  .u-btn:active { transform: translateY(0); }
+
+  .u-btn-primary {
+    background: var(--color-teal);
+    color: var(--color-bone);
+    box-shadow: 0 1px 2px rgb(11 51 46 / 0.2);
+  }
+  .u-btn-primary:hover {
+    background: var(--color-teal-deep);
+    box-shadow: 0 6px 20px -6px rgb(11 51 46 / 0.45);
+  }
+
+  .u-btn-clay {
+    background: var(--color-clay);
+    color: #fff;
+  }
+  .u-btn-clay:hover { background: #a8522f; }
+}
+
+/* --- Scroll-reveal ---------------------------------------------------------
+   Elements start slightly low and fade up once observed. The .is-in class is
+   added by components/Reveal.tsx. Anything that never gets observed still
+   renders (the base state is applied only when JS marks it), so content is
+   never trapped invisible.
+   -------------------------------------------------------------------------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Review marquee. Paused on hover and on keyboard focus within. */
+@keyframes u-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.u-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: u-marquee var(--marquee-duration, 90s) linear infinite;
+}
+.u-marquee:hover .u-marquee-track,
+.u-marquee:focus-within .u-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .u-marquee-track { animation: none; }
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .u-btn:hover { transform: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
