@@ -13,8 +13,6 @@ export const site = {
   email: "info@vasectomyaustralia.com.au",
   /** Google rating shown in the hero badge. Update both values together. */
   rating: { score: "5.0", count: 612 },
-  /** Fallback booking page for clinics without their own online calendar. */
-  bookingFallback: "https://vasectomyaustralia.com.au/book-online/",
   phoneConsult: "https://bit.ly/vas-appt",
   agency: {
     name: "Online Marketing For Doctors",
@@ -108,6 +106,8 @@ export const doctors = [
 export type Clinic = {
   name: string;
   suburb: string;
+  /** Region as VA's own booking system labels it, e.g. "Northern Beaches". */
+  region: string;
   address: string;
   booking: string;
   learnMore: string;
@@ -118,6 +118,7 @@ export const clinics: Clinic[] = [
   {
     name: "The Sydney Vasectomy Centre",
     suburb: "Enmore",
+    region: "Inner West",
     address: "Enmore Medical Practice, 134–146 Enmore Rd, Enmore NSW 2042",
     booking:
       "https://bookings.gettimely.com/vasectomyaustralia/bb/book?location=157255&product=2451305%3ASV&staff=288783",
@@ -127,57 +128,73 @@ export const clinics: Clinic[] = [
   {
     name: "Sydney Vasectomy Centre – North Shore",
     suburb: "Chatswood",
+    region: "North Shore",
     address: "Suite 205, 781 Pacific Highway, Chatswood NSW 2067",
-    booking: site.bookingFallback,
+    booking:
+      "https://bookings.gettimely.com/vasectomyaustralia/bb/book?location=278584&product=3111900%3ASV&staff=288783",
     learnMore: "https://vasectomyaustralia.com.au/vasectomy-north-shore-chatswood/",
   },
   {
     name: "Maroubra Family Doctors",
     suburb: "Maroubra",
+    region: "Eastern Suburbs",
     address: "Shop T01A, 717 Anzac Parade, Maroubra NSW 2035",
-    booking: site.bookingFallback,
+    booking:
+      "https://bookings.gettimely.com/vasectomyaustralia/bb/book?location=223631&product=2226310%3ASV&staff=288783",
     learnMore: "https://vasectomyaustralia.com.au/vasectomy-sydney-maroubra/",
   },
   {
     name: "Warringah Medical & Dental Centre",
     suburb: "Brookvale",
+    region: "Northern Beaches",
     address: "10 Dale St, Brookvale NSW 2100",
-    booking: site.bookingFallback,
+    booking:
+      "https://bookings.gettimely.com/vasectomyaustralia/bb/book?location=183680&product=1842369%3ASV&staff=288783",
     learnMore: "https://vasectomyaustralia.com.au/vasectomy-northern-beaches-sydney/",
   },
   {
     name: "The Hills Medical & Dental Centre",
     suburb: "Baulkham Hills",
+    region: "The Hills District",
     address: "3 Columbia Ct, Baulkham Hills NSW 2153",
-    booking: site.bookingFallback,
+    booking:
+      "https://bookings.gettimely.com/vasectomyaustralia/bb/book?location=187070&product=1842503%3ASV&staff=288783",
     learnMore: "https://vasectomyaustralia.com.au/vasectomy-hills-district-sydney/",
   },
   {
     name: "Pacific Medical Centre Blacktown",
     suburb: "Blacktown",
+    region: "Western Sydney",
     address: "23–27 First Ave, Blacktown NSW 2148",
-    booking: site.bookingFallback,
+    booking:
+      "https://bookings.gettimely.com/vasectomyaustralia/bb/book?location=173695&product=3012564%3ASV&staff=288783",
     learnMore: "https://vasectomyaustralia.com.au/vasectomy-western-sydney/",
   },
   {
-    name: "Kingsway Specialist Medical Centre",
+    name: "Sports Medicine Institute",
     suburb: "Miranda",
-    address: "Urology Suites, Level 3, 531–533 Kingsway, Miranda NSW 2228",
-    booking: site.bookingFallback,
+    region: "Sutherland Shire",
+    address: "Level 3, 531–533 Kingsway, Miranda NSW 2228",
+    booking:
+      "https://bookings.gettimely.com/vasectomyaustralia/bb/book?location=232690&product=2336303%3ASV&staff=288783",
     learnMore: "https://vasectomyaustralia.com.au/sydney-sutherland-shire/",
   },
   {
     name: "Penrith Medical Centre",
     suburb: "Penrith",
+    region: "Penrith",
     address: "61–79 Henry St, Penrith NSW 2750",
-    booking: site.bookingFallback,
+    booking:
+      "https://bookings.gettimely.com/vasectomyaustralia/bb/book?location=220962&product=2193244%3ASV&staff=288783",
     learnMore: "https://vasectomyaustralia.com.au/vasectomy-penrith-sydney/",
   },
   {
     name: "Campbelltown Medical and Dental Centre",
     suburb: "Campbelltown",
+    region: "South West Sydney",
     address: "296 Queen St, Campbelltown NSW 2560",
-    booking: site.bookingFallback,
+    booking:
+      "https://bookings.gettimely.com/vasectomyaustralia/bb/book?location=185418&product=1842767%3ASV&staff=288783",
     learnMore: "https://vasectomyaustralia.com.au/vasectomy-campbelltown-sydney/",
   },
 ];

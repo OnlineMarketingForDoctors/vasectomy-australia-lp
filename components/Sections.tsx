@@ -304,7 +304,10 @@ export function Locations() {
                   </span>
                 )}
               </div>
-              <p className="mt-1 text-[13.5px] font-medium text-ink">{c.name}</p>
+              {c.region !== c.suburb && (
+                <p className="u-eyebrow mt-1.5">{c.region}</p>
+              )}
+              <p className="mt-2 text-[13.5px] font-medium text-ink">{c.name}</p>
               <p className="mt-1.5 flex-1 text-[14px] leading-relaxed text-ink-soft">
                 {c.address}
               </p>

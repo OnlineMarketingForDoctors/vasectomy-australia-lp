@@ -131,7 +131,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
                         )}
                       </span>
                       <span className="mt-0.5 block truncate text-sm text-ink-soft">
-                        {c.name}
+                        {c.region === c.suburb ? c.name : `${c.region} · ${c.name}`}
                       </span>
                     </span>
                     <svg
