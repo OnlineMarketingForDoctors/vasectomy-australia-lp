@@ -111,7 +111,7 @@ export default function Hero() {
       <div className="relative hidden md:block">
         <div className="absolute inset-0">
           <Image
-            src="/img/hero-desktop.webp"
+            src="/img/hero-clinic-desktop.webp"
             alt="Dr Matt Valentine and Dr Geoff Cashion at the Sydney Vasectomy Centre"
             fill
             priority
