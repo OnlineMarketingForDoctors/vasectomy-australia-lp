@@ -43,7 +43,7 @@ export default function Hero() {
   return (
     <section id="top" className="relative bg-teal-deep">
       {/* MOBILE: full-bleed image above the headline, fading into the page. */}
-      <div className="relative md:hidden">
+      <div className="relative -mt-16 md:mt-0 md:hidden">
         <div className="relative aspect-[4/5] w-full">
           <Image
             src="/img/hero-mobile.webp"
@@ -59,6 +59,14 @@ export default function Hero() {
             style={{
               background:
                 "linear-gradient(to bottom, rgba(11,51,46,.42) 0%, rgba(11,51,46,.20) 38%, rgba(11,51,46,0) 62%)",
+            }}
+          />
+          {/* Keeps the white logo and icon buttons legible over the photo. */}
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 h-32"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(11,51,46,.58) 0%, rgba(11,51,46,.28) 55%, rgba(11,51,46,0) 100%)",
             }}
           />
           <div

@@ -30,23 +30,38 @@ export default function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  // On mobile the hero photograph runs up behind the bar, so at the top of the
+  // page the header is transparent and its marks flip to white. Once scrolled
+  // — or while the menu is open — it takes the solid paper background back.
+  const overHero = !scrolled && !menuOpen;
+
   return (
     <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
             ? "bg-paper/90 shadow-[0_1px_0_rgba(226,219,205,1),0_8px_28px_-20px_rgba(11,51,46,.35)] backdrop-blur-md"
-            : "bg-paper"
+            : menuOpen
+              ? "bg-paper"
+              : "bg-transparent md:bg-paper"
         }`}
       >
         <div className="u-wrap flex h-[64px] items-center justify-between gap-2 sm:gap-4 md:h-[76px]">
           <a href="#top" className="min-w-0 shrink" aria-label="Vasectomy Australia — back to top">
+            <Image
+              src="/img/logo-white.webp"
+              alt="Vasectomy Australia"
+              width={200}
+              height={34}
+              priority
+              className={`h-5 w-auto sm:h-7 md:hidden ${overHero ? "block" : "hidden"}`}
+            />
             <Image
               src="/img/logo-dark.webp"
               alt="Vasectomy Australia"
               width={200}
               height={34}
               priority
-              className="h-5 w-auto sm:h-7 md:h-8"
+              className={`h-5 w-auto sm:h-7 md:block md:h-8 ${overHero ? "hidden" : "block"}`}
             />
           </a>
 
@@ -88,7 +103,11 @@ export default function Header() {
             <a
               href={site.phoneHref}
               aria-label={`Call ${site.phoneLabel}`}
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line text-teal transition hover:bg-bone sm:h-10 sm:w-10 md:hidden"
+              className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border transition sm:h-10 sm:w-10 md:hidden ${
+                overHero
+                  ? "border-white/45 text-white hover:bg-white/15"
+                  : "border-line text-teal hover:bg-bone"
+              }`}
             >
               <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                 <path
@@ -103,7 +122,11 @@ export default function Header() {
               onClick={() => setMenuOpen((v) => !v)}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
-              className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line text-ink transition hover:bg-bone sm:h-10 sm:w-10 lg:hidden"
+              className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border transition sm:h-10 sm:w-10 lg:hidden ${
+                overHero
+                  ? "border-white/45 text-white hover:bg-white/15"
+                  : "border-line text-ink hover:bg-bone"
+              }`}
             >
               <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
                 {menuOpen ? (
