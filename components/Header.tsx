@@ -31,28 +31,7 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <>
-      {/* Utility bar: phone and email. Hidden on mobile, where the phone
-          icon in the main bar does the same job. */}
-      <div className="hidden bg-teal-deep text-bone md:block">
-        <div className="u-wrap flex h-10 items-center justify-between text-[13px]">
-          <div className="flex items-center gap-6">
-            <a href={site.phoneHref} className="font-semibold transition hover:text-clay-soft">
-              {site.phoneLabel}{" "}
-              <span className="font-normal text-bone/60">({site.phoneDigits})</span>
-            </a>
-            <a href={`mailto:${site.email}`} className="text-bone/75 transition hover:text-bone">
-              {site.email}
-            </a>
-          </div>
-          <p className="text-bone/70">
-            Rated <span className="font-semibold text-bone">{site.rating.score}</span> from{" "}
-            {site.rating.count} Google reviews
-          </p>
-        </div>
-      </div>
-
-      <header
+    <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
           scrolled
             ? "bg-paper/90 shadow-[0_1px_0_rgba(226,219,205,1),0_8px_28px_-20px_rgba(11,51,46,.35)] backdrop-blur-md"
@@ -170,7 +149,6 @@ export default function Header() {
             </ul>
           </nav>
         )}
-      </header>
-    </>
+    </header>
   );
 }
