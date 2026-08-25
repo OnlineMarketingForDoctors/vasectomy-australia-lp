@@ -26,11 +26,11 @@ export default function SydneyLandingPage() {
       <main>
         <Hero />
         <ReviewCarousel />
+        <WhyUs />
         <Facts />
         <Procedure />
         <Doctors />
         <Pricing />
-        <WhyUs />
         <Recovery />
         <Locations />
         <Faq />

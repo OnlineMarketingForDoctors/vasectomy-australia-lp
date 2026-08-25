@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import VideoPlayer from "./VideoPlayer";
 import { procedure } from "@/lib/content";
 
 /**
@@ -110,17 +110,12 @@ export default function Procedure() {
           </ol>
 
           <aside className="lg:sticky lg:top-28 lg:self-start" data-reveal>
-            <figure className="overflow-hidden rounded-3xl">
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src="/img/procedure-room.webp"
-                  alt="A prepared day-procedure room at a Vasectomy Australia Sydney clinic"
-                  fill
-                  sizes="(min-width: 1024px) 26rem, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            </figure>
+            <VideoPlayer
+              src="/video/how-it-works.mp4"
+              poster="/img/how-it-works-poster.webp"
+              label="Dr Geoff Cashion explains the no-scalpel vasectomy"
+              caption="Dr Geoff Cashion, founder of Vasectomy Australia, on how the procedure works and what recovery looks like."
+            />
             <div className="mt-6 rounded-3xl border border-line bg-paper p-6">
               <p className="u-eyebrow">Worth knowing</p>
               <p className="mt-3 text-[15.5px] leading-relaxed text-ink-soft">

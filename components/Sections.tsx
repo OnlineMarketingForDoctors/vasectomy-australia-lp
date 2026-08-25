@@ -16,7 +16,7 @@ const FACTS = [
 
 export function Facts() {
   return (
-    <section className="bg-paper py-14 md:py-16">
+    <section className="border-t border-line bg-paper py-14 md:py-16">
       <div className="u-wrap grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
         {FACTS.map((f, i) => (
           <div key={f.k} data-reveal style={{ ["--reveal-delay" as string]: `${i * 70}ms` }}>
