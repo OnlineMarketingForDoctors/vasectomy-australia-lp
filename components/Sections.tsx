@@ -411,13 +411,24 @@ export function ClosingCta() {
 
   return (
     <section className="relative isolate overflow-hidden">
+      {/* Two crops of the same view. The 21:9 frame leaves mostly sky and
+          water once cropped into a tall phone viewport, so mobile gets a
+          portrait composition that actually fills the section. */}
+      <Image
+        src="/img/sydney-cta-mobile.webp"
+        alt=""
+        aria-hidden="true"
+        fill
+        sizes="100vw"
+        className="-z-10 object-cover md:hidden"
+      />
       <Image
         src="/img/sydney-harbour-cta.webp"
         alt=""
         aria-hidden="true"
         fill
         sizes="100vw"
-        className="-z-10 object-cover"
+        className="-z-10 hidden object-cover md:block"
       />
       <div className="absolute inset-0 -z-10 bg-teal-deep/68" aria-hidden="true" />
 
