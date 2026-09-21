@@ -125,7 +125,7 @@ export const doctors: Doctor[] = [
     registration: "MED0000972761",
     registrationType: "Medical Practitioner",
     img: "/img/dr-matt.webp",
-    bio: "Matt completed his medical degree at the University of Adelaide in 2000, then spent five years as a full-time Medical Officer in the Royal Australian Air Force, including overseas deployments and aeromedical retrievals. He has performed vasectomies since 2008 — first trained in the traditional technique, then in the United States in the no-scalpel method. He is a Designated Aviation Medical Examiner with the Civil Aviation Safety Authority.",
+    bio: "Matt works full time in vasectomy and sees patients across our Sydney clinics. He completed his medical degree at the University of Adelaide in 2000, then spent five years as a full-time Medical Officer in the Royal Australian Air Force, including overseas deployments and aeromedical retrievals. He has performed vasectomies since 2008 — first trained in the traditional technique, then in the United States in the no-scalpel method. He is a Designated Aviation Medical Examiner with the Civil Aviation Safety Authority.",
     qualifications: [
       "2000 Bachelor of Medicine and Bachelor of Surgery, University of Adelaide",
       "2003 Designated Aviation Medical Examiner, Civil Aviation Safety Authority",
