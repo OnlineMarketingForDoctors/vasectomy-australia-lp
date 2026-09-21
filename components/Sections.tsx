@@ -71,6 +71,9 @@ export function Doctors() {
               </div>
               <h3 className="u-display mt-6 text-title">{d.name}</h3>
               <p className="u-eyebrow mt-1.5">{d.role}</p>
+              <p className="mt-2 text-[13px] text-ink-soft">
+                AHPRA {d.registration} · {d.registrationType}
+              </p>
               <p className="mt-4 max-w-[46ch] text-[15.5px] leading-relaxed text-ink-soft">
                 {d.bio}
               </p>
@@ -198,6 +201,17 @@ export function WhyUs() {
             </li>
           ))}
         </ul>
+      </div>
+
+      <div className="u-wrap mt-10">
+        <p
+          data-reveal
+          className="border-t border-line pt-5 text-[13.5px] leading-relaxed text-ink-soft"
+        >
+          Dr Geoff Cashion (AHPRA MED0001196484) and Dr Matt Valentine (AHPRA
+          MED0000972761) are registered Medical Practitioners with the
+          Australian Health Practitioner Regulation Agency.
+        </p>
       </div>
     </section>
   );

@@ -70,7 +70,7 @@ export const procedure = [
     at: "15",
     unit: "min",
     title: "You walk out",
-    body: "Most men drive themselves home. We ask you to wait 20 minutes and only drive if you feel completely fine — otherwise take a cab, or have someone collect you.",
+    body: "Arrange for someone to drive you home, or take a cab or public transport. If that is not possible, wait at least 20 minutes and only drive if you feel completely fine — and pull over straight away if you feel lightheaded.",
   },
 ];
 
@@ -91,6 +91,8 @@ export const doctors = [
     id: "geoff",
     name: "Dr Geoff Cashion",
     role: "Founder, Vasectomy Australia",
+    registration: "MED0001196484",
+    registrationType: "Medical Practitioner",
     img: "/img/dr-geoff.webp",
     bio: "Geoff founded Vasectomy Australia and has spent his career narrowing his practice to this one procedure — more than 25,000 vasectomies to date. He trained under world-leading vasectomists. Patients most often describe him as calm, which, given what they came in for, is the compliment that matters.",
   },
@@ -98,6 +100,8 @@ export const doctors = [
     id: "matt",
     name: "Dr Matt Valentine",
     role: "Vasectomy Specialist",
+    registration: "MED0000972761",
+    registrationType: "Medical Practitioner",
     img: "/img/dr-matt.webp",
     bio: "Matt works full time in vasectomy across our Sydney clinics and has performed more than 25,000 of them. He is a specialist rather than a GP who occasionally does these, and he is unhurried about questions — the consult is where most men stop being nervous, so he treats it as part of the procedure rather than a formality.",
   },
@@ -261,7 +265,7 @@ export const faqs = [
   },
   {
     q: "How do I prepare?",
-    a: "Stop any blood-thinning medication at least seven days beforehand — discuss this with your GP or specialist first. On the morning, shave your scrotum; if in doubt about how much, take it all off. Arrange time off or light duties if your job is physical. Read and sign the electronic consent form we send by SMS three days before.",
+    a: "Speak to your GP or specialist before stopping any blood-thinning medication; we generally ask that it is stopped seven days beforehand. On the morning, shave your scrotum; if in doubt about how much, take it all off. Arrange time off or light duties if your job is physical. Read and sign the electronic consent form we send by SMS three days before.",
   },
   {
     q: "Can I use private health insurance?",
