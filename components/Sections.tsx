@@ -52,8 +52,8 @@ export function Doctors() {
           <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
             Not a GP who fits in the occasional vasectomy. Dr Geoff and Dr Matt
             have each performed more than 25,000 vasectomies, they do over
-            9,000 a year between them, and both trained under world-leading
-            vasectomists.
+            9,000 a year across the practice, and both trained under
+            world-leading vasectomists.
           </p>
         </div>
 
@@ -69,7 +69,12 @@ export function Doctors() {
                   className="object-cover transition-transform duration-[900ms] ease-out hover:scale-[1.03]"
                 />
               </div>
-              <h3 className="u-display mt-6 text-title">{d.name}</h3>
+              <h3 className="u-display mt-6 text-title">
+                {d.name}
+                <span className="ml-2 align-middle text-[0.55em] font-sans font-semibold uppercase tracking-wider text-ink-soft">
+                  {d.postNominals}
+                </span>
+              </h3>
               <p className="u-eyebrow mt-1.5">{d.role}</p>
               <p className="mt-2 text-[13px] text-ink-soft">
                 AHPRA {d.registration} · {d.registrationType}
@@ -77,6 +82,18 @@ export function Doctors() {
               <p className="mt-4 max-w-[46ch] text-[15.5px] leading-relaxed text-ink-soft">
                 {d.bio}
               </p>
+
+              <p className="u-eyebrow mt-6">Qualifications</p>
+              <ul className="mt-3 max-w-[46ch] space-y-2">
+                {d.qualifications.map((q) => (
+                  <li
+                    key={q}
+                    className="border-t border-line pt-2 text-[14px] leading-snug text-ink-soft"
+                  >
+                    {q}
+                  </li>
+                ))}
+              </ul>
             </article>
           ))}
         </div>

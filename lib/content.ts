@@ -77,7 +77,7 @@ export const procedure = [
 export const reasons = [
   "Every one of our doctors trained under world-leading vasectomists",
   "Dr Geoff and Dr Matt have each performed more than 25,000 vasectomies",
-  "Our doctors work in vasectomy full time — over 9,000 cases a year between them",
+  "Our doctors work in vasectomy full time — over 9,000 cases a year across the practice",
   "A gentle technique, so recovery is fast and downtime is minimal",
   "No-scalpel and open-ended, which lowers the rate of bruising and bleeding",
   "One flat price, with no hidden gap fees",
@@ -86,24 +86,51 @@ export const reasons = [
   "Free phone consultations before you commit",
 ];
 
-export const doctors = [
+export type Doctor = {
+  id: string;
+  name: string;
+  /** Post-nominals as used on the practice's own About page. */
+  postNominals: string;
+  role: string;
+  registration: string;
+  registrationType: string;
+  img: string;
+  bio: string;
+  /** Verbatim from vasectomyaustralia.com.au/about/ */
+  qualifications: string[];
+};
+
+export const doctors: Doctor[] = [
   {
     id: "geoff",
     name: "Dr Geoff Cashion",
+    postNominals: "MBBS, FACRRM, FRCEM",
     role: "Founder, Vasectomy Australia",
     registration: "MED0001196484",
     registrationType: "Medical Practitioner",
     img: "/img/dr-geoff.webp",
-    bio: "Geoff founded Vasectomy Australia and has spent his career narrowing his practice to this one procedure — more than 25,000 vasectomies to date. He trained under world-leading vasectomists. Patients most often describe him as calm, which, given what they came in for, is the compliment that matters.",
+    bio: "Geoff founded Vasectomy Australia. He graduated in medicine from the University of Queensland in 2002 and worked for years in emergency medicine and general practice before narrowing his practice to this one procedure. He trained in the no-scalpel technique under Dr Doug Stein in Florida, with further training in Australia, and now performs more than 70 vasectomies a week across the country. He supervises general practice registrars for James Cook University, and lives in Sydney.",
+    qualifications: [
+      "2002 Bachelor of Medicine and Bachelor of Surgery, University of Queensland",
+      "2011 Fellowship, Australian College of Rural and Remote Medicine",
+      "2013 Fellowship, The Royal College of Emergency Medicine",
+      "2018 Graduate Certificate in Occupational Medicine, Otago University",
+    ],
   },
   {
     id: "matt",
-    name: "Dr Matt Valentine",
+    name: "Dr Matthew Valentine",
+    postNominals: "MBBS, FRACGP",
     role: "Vasectomy Specialist",
     registration: "MED0000972761",
     registrationType: "Medical Practitioner",
     img: "/img/dr-matt.webp",
-    bio: "Matt works full time in vasectomy across our Sydney clinics and has performed more than 25,000 of them. He is a specialist rather than a GP who occasionally does these, and he is unhurried about questions — the consult is where most men stop being nervous, so he treats it as part of the procedure rather than a formality.",
+    bio: "Matt completed his medical degree at the University of Adelaide in 2000, then spent five years as a full-time Medical Officer in the Royal Australian Air Force, including overseas deployments and aeromedical retrievals. He has performed vasectomies since 2008 — first trained in the traditional technique, then in the United States in the no-scalpel method. He is a Designated Aviation Medical Examiner with the Civil Aviation Safety Authority.",
+    qualifications: [
+      "2000 Bachelor of Medicine and Bachelor of Surgery, University of Adelaide",
+      "2003 Designated Aviation Medical Examiner, Civil Aviation Safety Authority",
+      "2006 Fellowship of the Royal Australian College of General Practitioners",
+    ],
   },
 ];
 
