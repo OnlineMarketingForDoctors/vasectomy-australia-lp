@@ -41,7 +41,19 @@ export function Facts() {
 
 /* ----------------------------------------------------------------- doctors */
 
+/** Which of the two operates at this location, named rather than implied. */
+const OPERATING: Record<string, string> = {
+  geoff: "Dr Geoff Cashion",
+  matt: "Dr Matt Valentine",
+};
+
 export function Doctors() {
+  const { operatingDoctor, cityIn } = useLocation();
+  const operating =
+    operatingDoctor === "both"
+      ? `Both of them operate ${cityIn}.`
+      : `Your procedure ${cityIn} is performed by ${OPERATING[operatingDoctor]}.`;
+
   return (
     <section id="doctors" className="scroll-mt-24 bg-paper py-20 md:py-28">
       <div className="u-wrap">
@@ -55,6 +67,9 @@ export function Doctors() {
             have each performed more than 25,000 vasectomies, they do over
             9,000 a year across the practice, and both trained under
             world-leading vasectomists.
+          </p>
+          <p className="mt-4 text-[17px] font-medium leading-relaxed text-ink">
+            {operating}
           </p>
         </div>
 
@@ -411,8 +426,22 @@ export function Locations() {
               key={c.suburb}
               data-reveal
               style={{ ["--reveal-delay" as string]: `${(i % 3) * 70}ms` }}
-              className="flex flex-col border-t border-line pt-5"
+              className="flex flex-col overflow-hidden rounded-3xl border border-line bg-bone/40"
             >
+              {c.mapEmbed && (
+                /* Tinted panel behind the iframe: consent tools block these
+                   embeds routinely, and the address below stands on its own. */
+                <div className="relative h-40 bg-sand">
+                  <iframe
+                    src={c.mapEmbed}
+                    title={`Map showing ${c.name}, ${c.address}`}
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    className="absolute inset-0 h-full w-full border-0"
+                  />
+                </div>
+              )}
+              <div className="flex flex-1 flex-col p-6">
               <div className="flex items-center gap-2">
                 <h3 className="u-display text-[1.35rem]">{c.suburb}</h3>
                 {c.flagship && (
@@ -428,20 +457,31 @@ export function Locations() {
               <p className="mt-1.5 flex-1 text-[14px] leading-relaxed text-ink-soft">
                 {c.address}
               </p>
-              <a
-                href={c.learnMore}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group mt-3 inline-flex items-center gap-1.5 text-[14px] font-semibold text-teal"
-              >
-                Clinic details
-                <svg
-                  width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"
-                  className="transition-transform duration-200 group-hover:translate-x-1"
+              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
+                <a
+                  href={c.learnMore ?? mapsSearchUrl(c)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-teal"
                 >
-                  <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </a>
+                  {c.learnMore ? "Clinic details" : "Open in Google Maps"}
+                  <svg
+                    width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"
+                    className="transition-transform duration-200 group-hover:translate-x-1"
+                  >
+                    <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </a>
+                <a
+                  href={c.booking}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[14px] font-semibold text-ink-soft underline underline-offset-4 transition hover:text-teal"
+                >
+                  Book here
+                </a>
+              </div>
+              </div>
             </li>
           ))}
         </ul>

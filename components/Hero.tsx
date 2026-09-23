@@ -45,7 +45,7 @@ function GoogleBadge() {
  */
 export default function Hero() {
   const { open } = useBooking();
-  const { hero, heroIntro, heroWhere, eyebrow, city } = useLocation();
+  const { hero, heroIntro, heroWhere, eyebrow, cityIn } = useLocation();
 
   return (
     <section id="top" className="relative bg-teal-deep">
@@ -124,7 +124,7 @@ export default function Hero() {
             <span className="text-clay md:text-clay-soft">
               no-scalpel vasectomy
             </span>{" "}
-            in {city}
+            {cityIn}
           </h1>
 
           <p

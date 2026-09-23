@@ -11,6 +11,31 @@ export const metadata: Metadata = {
   robots: ROBOTS_DIRECTIVE,
 };
 
+const STATE_NAMES: Record<string, string> = {
+  NSW: "New South Wales",
+  VIC: "Victoria",
+  QLD: "Queensland",
+  WA: "Western Australia",
+  SA: "South Australia",
+  ACT: "Australian Capital Territory",
+  TAS: "Tasmania",
+  NT: "Northern Territory",
+};
+
+/** Keeps the registry's order, but breaks the list up by state. */
+function groupByState(all: typeof locations): [string, typeof locations][] {
+  const order: string[] = [];
+  const byState = new Map<string, typeof locations>();
+  for (const l of all) {
+    if (!byState.has(l.state)) {
+      byState.set(l.state, []);
+      order.push(l.state);
+    }
+    byState.get(l.state)!.push(l);
+  }
+  return order.map((s) => [s, byState.get(s)!]);
+}
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-paper">
@@ -33,12 +58,15 @@ export default function Home() {
           Vasectomy Australia, by location.
         </h1>
         <p className="mt-5 max-w-[52ch] text-[17px] leading-relaxed text-ink-soft">
-          Each page covers the clinics in one city. More locations are added
-          here as they go up.
+          Each page covers the clinics in one city. {locations.length} pages,
+          grouped by state.
         </p>
 
-        <ul className="mt-12 max-w-3xl">
-          {locations.map((p) => (
+        {groupByState(locations).map(([state, group]) => (
+        <section key={state}>
+        <h2 className="u-display mt-14 text-title">{STATE_NAMES[state] ?? state}</h2>
+        <ul className="mt-5 max-w-3xl">
+          {group.map((p) => (
             <li key={p.slug} className="border-t border-line">
               <Link
                 href={p.slug}
@@ -70,6 +98,8 @@ export default function Home() {
           ))}
           <li className="border-t border-line" />
         </ul>
+        </section>
+        ))}
 
         <p className="mt-14 border-t border-line pt-6 text-sm text-ink-soft">
           {site.phoneLabel} ({site.phoneDigits}) ·{" "}
