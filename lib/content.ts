@@ -10,6 +10,8 @@ export const site = {
   phoneLabel: "1800 SNIPME",
   phoneDigits: "1800 764 763",
   phoneHref: "tel:1800764763",
+  /** Google Tag Manager container — the same one the previous page used. */
+  gtmId: "GTM-KJKNPM5",
   email: "info@vasectomyaustralia.com.au",
   /** Google rating shown in the hero badge. Update both values together. */
   rating: { score: "5.0", count: 612 },
