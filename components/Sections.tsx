@@ -290,6 +290,12 @@ export function Recovery() {
 
 /* --------------------------------------------------------------- locations */
 
+function mapsSearchUrl(c: { name: string; address: string }) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    `${c.name}, ${c.address}`
+  )}`;
+}
+
 export function Locations() {
   const { open } = useBooking();
   const { clinics, locations } = useLocation();
@@ -311,22 +317,44 @@ export function Locations() {
           </button>
         </div>
 
-        <figure className="relative mt-12 aspect-[21/9] overflow-hidden rounded-3xl" data-reveal>
-          <Image
-            src={locations.image.src}
-            alt={locations.image.alt}
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-        </figure>
+        {locations.mapEmbed ? (
+          /* Tinted panel behind the iframe: privacy extensions and consent
+             tools block these embeds routinely, and a blocked map should read
+             as a quiet panel rather than a blank white rectangle. The address
+             and maps link sit in the card below either way. */
+          <div
+            data-reveal
+            className="relative mt-12 h-[320px] overflow-hidden rounded-3xl bg-sand md:h-[440px]"
+          >
+            <iframe
+              src={locations.mapEmbed}
+              title={`Map showing ${clinics[0].name}, ${clinics[0].address}`}
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              className="absolute inset-0 h-full w-full border-0"
+            />
+          </div>
+        ) : (
+          locations.image && (
+            <figure className="relative mt-12 aspect-[21/9] overflow-hidden rounded-3xl" data-reveal>
+              <Image
+                src={locations.image.src}
+                alt={locations.image.alt}
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+            </figure>
+          )
+        )}
 
         {single ? (
           /* One clinic: a grid of one reads as a mistake, so the single
              location gets a full-width card with the booking action on it. */
           <div
             data-reveal
-            className="mt-12 grid gap-8 rounded-3xl border border-line bg-bone/50 p-8 md:grid-cols-[1fr_auto] md:items-end md:p-10"
+            className="mt-8 grid gap-8 rounded-3xl border border-line bg-bone/50 p-8 md:grid-cols-[1fr_auto] md:items-end md:p-10"
           >
             <div>
               <p className="u-eyebrow">{clinics[0].region}</p>
@@ -340,9 +368,7 @@ export function Locations() {
                 {clinics[0].address}
               </p>
               <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  `${clinics[0].name}, ${clinics[0].address}`
-                )}`}
+                href={mapsSearchUrl(clinics[0])}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group mt-4 inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-teal"
@@ -355,6 +381,7 @@ export function Locations() {
                   <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
+
             </div>
 
             <div className="flex flex-col gap-3 md:items-end">

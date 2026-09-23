@@ -50,7 +50,10 @@ export type Location = {
   locations: {
     heading: string;
     lede: string;
-    image: { src: string; alt: string };
+    /** The wide picture above the clinics. Omitted when a map takes its place. */
+    image?: { src: string; alt: string };
+    /** Google Maps embed src, shown instead of the picture. */
+    mapEmbed?: string;
   };
 
   cta: { desktop: string; mobile: string };
@@ -202,17 +205,13 @@ export const newcastle: Location = {
     },
   },
 
-  // The Newcastle listing has its own rating; until we show that, the badge
-  // uses practice-wide wording rather than Sydney's numbers.
-  googleRating: null,
+  googleRating: { score: "5.0", count: 507 },
 
   locations: {
     heading: "Where to find us in Newcastle.",
     lede: "One clinic, on Darby Street in Cooks Hill, a few minutes from the city centre.",
-    image: {
-      src: "/img/newcastle-street.webp",
-      alt: "Darby Street, Cooks Hill, near the Newcastle clinic",
-    },
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.569089277725!2d151.768353!3d-32.9359814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b7315ca94a243ab%3A0x3ef6912fd084e313!2sVasectomy%20Australia%20-%20Newcastle!5e0!3m2!1sen!2sau!4v1790193918514!5m2!1sen!2sau",
   },
 
   cta: {

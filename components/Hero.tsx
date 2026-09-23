@@ -7,10 +7,12 @@ import { GoogleG, Stars } from "./GoogleMarks";
 import { useBooking } from "./BookingModal";
 
 function GoogleBadge() {
-  const { googleRating } = useLocation();
+  const { googleRating, city } = useLocation();
   return (
     <a
-      href="https://www.google.com/search?q=Vasectomy+Australia+Sydney+reviews"
+      href={`https://www.google.com/search?q=${encodeURIComponent(
+        `Vasectomy Australia ${city} reviews`
+      )}`}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/95 py-2 pl-3 pr-4 shadow-[0_2px_10px_rgba(11,51,46,.25)] backdrop-blur transition hover:bg-white hover:shadow-lg"
