@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { site } from "@/lib/content";
+import { useCopy } from "./LocationContext";
 import { useLocation } from "./LocationContext";
 
 const BookingContext = createContext<{ open: () => void }>({ open: () => {} });
@@ -13,6 +14,7 @@ export function useBooking() {
 
 export function BookingProvider({ children }: { children: React.ReactNode }) {
   const { clinics } = useLocation();
+  const t = useCopy();
   const [isOpen, setIsOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const returnFocusTo = useRef<HTMLElement | null>(null);
@@ -90,7 +92,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
         >
           <button
             type="button"
-            aria-label="Close booking options"
+            aria-label={t.booking.closeOptions}
             onClick={close}
             className="absolute inset-0 h-full w-full cursor-default bg-teal-deep/55 backdrop-blur-[3px]"
             style={{ animation: "fadeIn .2s ease both" }}
@@ -103,15 +105,15 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
           >
             <div className="mb-5 flex items-start justify-between gap-4">
               <div>
-                <p className="u-eyebrow">Book online</p>
+                <p className="u-eyebrow">{t.booking.eyebrow}</p>
                 <h2 id="booking-title" className="u-display mt-1 text-2xl sm:text-3xl">
-                  Which clinic suits you?
+                  {t.booking.heading}
                 </h2>
               </div>
               <button
                 type="button"
                 onClick={close}
-                aria-label="Close"
+                aria-label={t.booking.close}
                 className="-mr-1 -mt-1 grid h-9 w-9 shrink-0 place-items-center rounded-full text-ink-soft transition hover:bg-sand hover:text-ink"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -134,7 +136,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
                         <span className="font-semibold text-ink">{c.suburb}</span>
                         {c.flagship && (
                           <span className="rounded-full bg-teal/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-teal">
-                            Main centre
+                            {t.locations.mainCentre}
                           </span>
                         )}
                       </span>
@@ -154,16 +156,16 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
             </ul>
 
             <p className="mt-5 border-t border-line pt-4 text-sm text-ink-soft">
-              Not sure yet? Book a{" "}
+              {t.booking.notSure}{" "}
               <a
                 href={site.phoneConsult}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-teal underline underline-offset-2"
               >
-                free phone consult
+                {t.booking.freeConsult}
               </a>{" "}
-              or call{" "}
+              {t.booking.orCall}{" "}
               <a href={site.phoneHref} className="font-semibold text-teal underline underline-offset-2">
                 {site.phoneLabel}
               </a>

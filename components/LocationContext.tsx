@@ -2,6 +2,7 @@
 
 import { createContext, useContext } from "react";
 import type { Location } from "@/lib/locations";
+import { copyFor, type Copy } from "@/lib/copy";
 
 const LocationContext = createContext<Location | null>(null);
 
@@ -27,4 +28,9 @@ export function useLocation(): Location {
     throw new Error("useLocation must be used inside a LocationProvider");
   }
   return location;
+}
+
+/** The strings for this page's language. */
+export function useCopy(): Copy {
+  return copyFor(useLocation().lang);
 }

@@ -17,6 +17,10 @@ export const hobart: Location = loc({
     lede: "One clinic, on Bayfield Street at Rosny Park, over the bridge from the city.",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.355052622936!2d147.3707141!3d-42.8653496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaa6ddf9aa2414ad5%3A0xf9aa53ea7cd97c8a!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1769043444284!5m2!1sen!2sau",
   },
+  cta: {
+    desktop: "/img/hobart-cta.webp",
+    mobile: "/img/hobart-cta-mobile.webp",
+  },
   footerLine: "No-scalpel, open-ended vasectomy in Hobart and southern Tasmania.",
   clinics: [
     {

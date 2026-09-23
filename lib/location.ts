@@ -7,6 +7,8 @@
  * the route itself is generated from the registry.
  */
 
+import type { Lang } from "./copy";
+
 export const TIMELY = "https://bookings.gettimely.com/vasectomyaustralia";
 
 /** Where a clinic has no calendar of its own, Timely asks which one you want. */
@@ -30,6 +32,8 @@ export type Clinic = {
 
 export type Location = {
   slug: string;
+  /** Which of lib/lang the page renders in. Defaults to English. */
+  lang: Lang;
   city: string;
   /**
    * The phrase after "no-scalpel vasectomy" in the headline. Regions take
@@ -81,27 +85,31 @@ const DEFAULT_HERO = {
 };
 
 /**
- * The closing panel behind the teal wash. Cities with a picture of their own
- * override it; the rest share a clinic view rather than a stock skyline that
- * belongs to somewhere else.
+ * The closing panel behind the teal wash. Capital cities have a picture of
+ * their own; the rest share this one, because a regional page showing a
+ * skyline that belongs to somewhere else reads as a stock photo.
  */
 const DEFAULT_CTA = {
-  desktop: "/img/reception.webp",
-  mobile: "/img/reception.webp",
+  desktop: "/img/country-cta.webp",
+  mobile: "/img/country-cta-mobile.webp",
 };
 
 type LocationInput = Omit<
   Location,
-  "hero" | "cta" | "cityIn" | "googleRating" | "operatingDoctor"
+  "hero" | "cta" | "cityIn" | "googleRating" | "operatingDoctor" | "lang"
 > &
   Partial<
-    Pick<Location, "hero" | "cta" | "cityIn" | "googleRating" | "operatingDoctor">
+    Pick<
+      Location,
+      "hero" | "cta" | "cityIn" | "googleRating" | "operatingDoctor" | "lang"
+    >
   >;
 
 /** Fills the parts almost every page shares, so entries stay readable. */
 export function loc(input: LocationInput): Location {
   return {
     ...input,
+    lang: input.lang ?? "en",
     cityIn: input.cityIn ?? `in ${input.city}`,
     hero: input.hero ?? DEFAULT_HERO,
     cta: input.cta ?? DEFAULT_CTA,

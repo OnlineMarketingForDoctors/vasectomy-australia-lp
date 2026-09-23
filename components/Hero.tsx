@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { site, pricing } from "@/lib/content";
-import { useLocation } from "./LocationContext";
+import { useCopy, useLocation } from "./LocationContext";
 import { GoogleG, Stars } from "./GoogleMarks";
 import { useBooking } from "./BookingModal";
 
 function GoogleBadge() {
   const { googleRating, city } = useLocation();
+  const t = useCopy();
   return (
     <a
       href={`https://www.google.com/search?q=${encodeURIComponent(
@@ -28,8 +29,8 @@ function GoogleBadge() {
         </span>
         <span className="block text-[11px] text-ink-soft">
           {googleRating
-            ? `${googleRating.count} Google reviews`
-            : "Rated across Australia"}
+            ? t.hero.reviews(googleRating.count)
+            : t.hero.ratedAcross}
         </span>
       </span>
     </a>
@@ -46,6 +47,7 @@ function GoogleBadge() {
 export default function Hero() {
   const { open } = useBooking();
   const { hero, heroIntro, heroWhere, eyebrow, cityIn } = useLocation();
+  const t = useCopy();
 
   return (
     <section id="top" className="relative bg-teal-deep">
@@ -120,10 +122,12 @@ export default function Hero() {
           <p className="u-eyebrow mt-5 md:mt-7 md:text-clay-soft">{eyebrow}</p>
 
           <h1 className="u-display mt-2 text-[clamp(2.1rem,8.6vw,2.9rem)] text-ink md:mt-2.5 md:text-[clamp(2.2rem,4.1vw,3.7rem)] md:text-bone">
-            Safe, effective and affordable{" "}
+            {t.hero.headlineLead}
+            {t.hero.headlineGap}
             <span className="text-clay md:text-clay-soft">
-              no-scalpel vasectomy
-            </span>{" "}
+              {t.hero.headlineHighlight}
+            </span>
+            {t.hero.headlineGap}
             {cityIn}
           </h1>
 
@@ -134,7 +138,7 @@ export default function Hero() {
           >
             {heroIntro}{" "}
             <strong className="font-semibold text-ink md:text-bone">
-              ${pricing.outOfPocket} out of pocket
+              {t.hero.outOfPocket(pricing.outOfPocket)}
             </strong>{" "}
             {heroWhere}
           </p>
@@ -149,13 +153,13 @@ export default function Hero() {
               onClick={open}
               className="u-btn h-13 bg-teal px-7 py-3.5 text-[16px] text-bone shadow-[0_1px_2px_rgb(11_51_46/0.2)] hover:bg-teal-deep md:bg-clay md:px-8 md:py-4 md:text-white md:hover:bg-[#a8522f]"
             >
-              Book online
+              {t.cta.book}
             </button>
             <a
               href="#how"
               className="u-btn h-13 border border-line bg-transparent px-7 py-3.5 text-[16px] text-ink hover:bg-bone md:border-bone/30 md:py-4 md:text-bone md:hover:bg-bone md:hover:text-teal-deep"
             >
-              See what actually happens
+              {t.hero.seeWhatHappens}
             </a>
           </div>
 
@@ -164,8 +168,7 @@ export default function Hero() {
             style={{ ["--reveal-delay" as string]: "340ms" }}
             className="mt-7 hidden text-sm text-bone/65 md:block"
           >
-            Same-day consult and procedure · No GP referral needed ·
-            Free phone consults
+            {t.hero.reassurance}
           </p>
         </div>
       </div>

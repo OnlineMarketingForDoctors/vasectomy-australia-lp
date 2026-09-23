@@ -89,3 +89,26 @@ export const sydneyBulkBilled: Location = loc({
     },
   ],
 });
+
+/**
+ * The Chinese-language page. Same three centres as /chinese; everything a
+ * visitor reads comes from lib/lang/zh.ts.
+ */
+export const chineseZh: Location = loc({
+  ...chinese,
+  slug: "/chinese-zh",
+  lang: "zh",
+  cityIn: "在悉尼、墨尔本和阿德莱德",
+  eyebrow: "中文服务 · 悉尼、墨尔本、阿德莱德",
+  metaTitle: "无刀口输精管结扎手术（中文服务）— Vasectomy Australia",
+  metaDescription:
+    "在悉尼、墨尔本和阿德莱德提供中文服务的无刀口、开放式输精管结扎手术。局部麻醉下约 15 分钟完成，Medicare 补贴后实际自付 $597。",
+  indexSummary: "中文服务页面：悉尼、墨尔本与阿德莱德的无刀口输精管结扎手术。",
+  heroIntro: "中文服务，局部麻醉下约 15 分钟完成。",
+  heroWhere: "— 悉尼、墨尔本与阿德莱德三家中心，均可提供中文服务。",
+  locations: {
+    heading: "三家中心，均提供中文服务。",
+    lede: "悉尼 Enmore、墨尔本 Gladstone Park、阿德莱德 Beulah Park。",
+  },
+  footerLine: "提供中文服务的无刀口、开放式输精管结扎手术。",
+});

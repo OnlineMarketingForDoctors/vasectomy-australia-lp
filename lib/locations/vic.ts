@@ -16,6 +16,10 @@ export const melbourne: Location = loc({
     heading: "Three clinics across Melbourne.",
     lede: "Our main centre is on Commercial Road in Prahran, with bookings also available at Gladstone Park and Casey.",
   },
+  cta: {
+    desktop: "/img/melbourne-cta.webp",
+    mobile: "/img/melbourne-cta-mobile.webp",
+  },
   footerLine: "No-scalpel, open-ended vasectomy across three Melbourne clinics.",
   clinics: [
     {

@@ -16,6 +16,10 @@ export const perth: Location = loc({
     heading: "Five clinics across Perth.",
     lede: "Our main centre is on Walter Road East in Morley, with bookings also available from Hillarys to Rockingham.",
   },
+  cta: {
+    desktop: "/img/perth-cta.webp",
+    mobile: "/img/perth-cta-mobile.webp",
+  },
   footerLine: "No-scalpel, open-ended vasectomy across five Perth clinics.",
   clinics: [
     {

@@ -3,18 +3,19 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { site } from "@/lib/content";
+import { useCopy } from "./LocationContext";
 import { useBooking } from "./BookingModal";
-
-const NAV = [
-  { label: "The 15 minutes", href: "#how" },
-  { label: "Your doctors", href: "#doctors" },
-  { label: "Price", href: "#price" },
-  { label: "Locations", href: "#locations" },
-  { label: "FAQ", href: "#faq" },
-];
 
 export default function Header() {
   const { open } = useBooking();
+  const t = useCopy();
+  const NAV = [
+    { label: t.nav.how, href: "#how" },
+    { label: t.nav.doctors, href: "#doctors" },
+    { label: t.nav.price, href: "#price" },
+    { label: t.nav.locations, href: "#locations" },
+    { label: t.nav.faq, href: "#faq" },
+  ];
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -46,7 +47,7 @@ export default function Header() {
         }`}
       >
         <div className="u-wrap flex h-[64px] items-center justify-between gap-2 sm:gap-4 md:h-[76px]">
-          <a href="#top" className="min-w-0 shrink" aria-label="Vasectomy Australia — back to top">
+          <a href="#top" className="min-w-0 shrink" aria-label={t.header.backToTop}>
             <Image
               src="/img/logo-white.webp"
               alt="Vasectomy Australia"
@@ -65,7 +66,7 @@ export default function Header() {
             />
           </a>
 
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="Page sections">
+          <nav className="hidden items-center gap-7 lg:flex" aria-label={t.header.sections}>
             {NAV.map((n) => (
               <a
                 key={n.href}
@@ -96,13 +97,13 @@ export default function Header() {
               onClick={open}
               className="u-btn u-btn-primary h-9 shrink-0 whitespace-nowrap px-3 text-[12.5px] sm:h-10 sm:px-4 sm:text-[13px] md:h-11 md:px-6 md:text-[15px]"
             >
-              Book online
+              {t.cta.book}
             </button>
 
             {/* Mobile: icon only. */}
             <a
               href={site.phoneHref}
-              aria-label={`Call ${site.phoneLabel}`}
+              aria-label={`${t.header.call} ${site.phoneLabel}`}
               className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border transition sm:h-10 sm:w-10 md:hidden ${
                 overHero
                   ? "border-white/45 text-white hover:bg-white/15"
@@ -120,7 +121,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setMenuOpen((v) => !v)}
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-label={menuOpen ? t.header.closeMenu : t.header.openMenu}
               aria-expanded={menuOpen}
               className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border transition sm:h-10 sm:w-10 lg:hidden ${
                 overHero
@@ -144,7 +145,7 @@ export default function Header() {
         {menuOpen && (
           <nav
             className="border-t border-line bg-paper lg:hidden"
-            aria-label="Page sections"
+            aria-label={t.header.sections}
           >
             <ul className="u-wrap py-2">
               {NAV.map((n) => (

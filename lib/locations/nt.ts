@@ -16,6 +16,10 @@ export const darwin: Location = loc({
     heading: "Three clinics across Darwin.",
     lede: "Darwin City, the northern suburbs at Coconut Grove, and Palmerston.",
   },
+  cta: {
+    desktop: "/img/darwin-cta.webp",
+    mobile: "/img/darwin-cta-mobile.webp",
+  },
   footerLine: "No-scalpel, open-ended vasectomy across Darwin and Palmerston.",
   clinics: [
     {

@@ -17,6 +17,10 @@ export const brisbane: Location = loc({
     lede: "One clinic, on the first floor of the Eaves Building at West Village, a few minutes from the CBD.",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14158.967682083625!2d153.0124381!3d-27.4772929!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9151771661b4ed%3A0x517433532a791645!2sVasectomy%20Australia%20-%20Brisbane!5e0!3m2!1sen!2sau!4v1699437080281!5m2!1sen!2sau",
   },
+  cta: {
+    desktop: "/img/brisbane-cta.webp",
+    mobile: "/img/brisbane-cta-mobile.webp",
+  },
   footerLine: "No-scalpel, open-ended vasectomy in Brisbane.",
   clinics: [
     {
@@ -46,6 +50,10 @@ export const goldCoast: Location = loc({
     heading: "Where to find us on the Gold Coast.",
     lede: "One clinic, on Campus Crescent at Robina, next to the town centre.",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14081.490758394395!2d153.3773695!3d-28.0741726!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd47199342b1cfece!2sVasectomy%20Australia%20-%20Gold%20Coast!5e0!3m2!1sen!2sau!4v1667956538200!5m2!1sen!2sau",
+  },
+  cta: {
+    desktop: "/img/gold-coast-cta.webp",
+    mobile: "/img/gold-coast-cta-mobile.webp",
   },
   footerLine: "No-scalpel, open-ended vasectomy on the Gold Coast.",
   clinics: [

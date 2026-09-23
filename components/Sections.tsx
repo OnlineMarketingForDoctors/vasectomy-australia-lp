@@ -2,20 +2,14 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { doctors, faqs, pricing, reasons, recovery, site } from "@/lib/content";
-import { useLocation } from "./LocationContext";
+import { doctors, pricing, site } from "@/lib/content";
+import { useCopy, useLocation } from "./LocationContext";
 import { useBooking } from "./BookingModal";
 
 /* ------------------------------------------------------------------ facts */
 
-const FACTS = [
-  { k: "15 min", v: "in the procedure room, under local anaesthetic" },
-  { k: ">99%", v: "success rate with no-scalpel vasectomy" },
-  { k: "25,000+", v: "vasectomies performed by each of our two doctors" },
-  { k: "~7 days", v: "for most men to feel back to normal" },
-];
-
 export function Facts() {
+  const FACTS = useCopy().facts;
   return (
     <section className="bg-teal-deep py-16 text-bone md:py-20">
       <div className="u-wrap grid grid-cols-2 gap-x-8 gap-y-11 lg:grid-cols-4">
@@ -49,24 +43,22 @@ const OPERATING: Record<string, string> = {
 
 export function Doctors() {
   const { operatingDoctor, cityIn } = useLocation();
+  const t = useCopy();
   const operating =
     operatingDoctor === "both"
-      ? `Both of them operate ${cityIn}.`
-      : `Your procedure ${cityIn} is performed by ${OPERATING[operatingDoctor]}.`;
+      ? t.doctors.operatingBoth(cityIn)
+      : t.doctors.operatingOne(cityIn, OPERATING[operatingDoctor]);
 
   return (
     <section id="doctors" className="scroll-mt-24 bg-paper py-20 md:py-28">
       <div className="u-wrap">
         <div className="max-w-2xl" data-reveal>
-          <p className="u-eyebrow">Who does it</p>
+          <p className="u-eyebrow">{t.doctors.eyebrow}</p>
           <h2 className="u-display mt-3 text-headline">
-            Two specialists who do this all day, every day.
+            {t.doctors.heading}
           </h2>
           <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
-            Not a GP who fits in the occasional vasectomy. Dr Geoff and Dr Matt
-            have each performed more than 25,000 vasectomies, they do over
-            9,000 a year across the practice, and both trained under
-            world-leading vasectomists.
+            {t.doctors.lede}
           </p>
           <p className="mt-4 text-[17px] font-medium leading-relaxed text-ink">
             {operating}
@@ -74,12 +66,14 @@ export function Doctors() {
         </div>
 
         <div className="mt-14 grid gap-8 md:grid-cols-2 md:gap-10">
-          {doctors.map((d, i) => (
+          {doctors.map((d, i) => {
+            const dc = t.doctors.byId[d.id];
+            return (
             <article key={d.id} data-reveal style={{ ["--reveal-delay" as string]: `${i * 110}ms` }}>
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-sand">
                 <Image
                   src={d.img}
-                  alt={`${d.name}, ${d.role}`}
+                  alt={`${d.name}, ${dc.role}`}
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="object-cover transition-transform duration-[900ms] ease-out hover:scale-[1.03]"
@@ -91,17 +85,18 @@ export function Doctors() {
                   {d.postNominals}
                 </span>
               </h3>
-              <p className="u-eyebrow mt-1.5">{d.role}</p>
+              <p className="u-eyebrow mt-1.5">{dc.role}</p>
               <p className="mt-2 text-[13px] text-ink-soft">
-                AHPRA {d.registration} · {d.registrationType}
+                {t.doctors.registrationPrefix} {d.registration} ·{" "}
+                {dc.registrationType}
               </p>
               <p className="mt-4 max-w-[46ch] text-[15.5px] leading-relaxed text-ink-soft">
-                {d.bio}
+                {dc.bio}
               </p>
 
-              <p className="u-eyebrow mt-6">Qualifications</p>
+              <p className="u-eyebrow mt-6">{t.doctors.qualifications}</p>
               <ul className="mt-3 max-w-[46ch] space-y-2">
-                {d.qualifications.map((q) => (
+                {dc.qualifications.map((q) => (
                   <li
                     key={q}
                     className="border-t border-line pt-2 text-[14px] leading-snug text-ink-soft"
@@ -111,7 +106,8 @@ export function Doctors() {
                 ))}
               </ul>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -122,9 +118,10 @@ export function Doctors() {
 
 export function Pricing() {
   const { open } = useBooking();
+  const t = useCopy();
   const rows = [
-    { label: "Procedure fee", value: `$${pricing.total}` },
-    { label: "Less Medicare rebate", value: `−$${pricing.rebate}`, muted: true },
+    { label: t.pricing.procedureFee, value: `$${pricing.total}` },
+    { label: t.pricing.lessRebate, value: `−$${pricing.rebate}`, muted: true },
   ];
 
   return (
@@ -132,15 +129,13 @@ export function Pricing() {
       <div className="u-wrap grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-20">
         <div data-reveal>
           <p className="u-eyebrow" style={{ color: "var(--color-clay-soft)" }}>
-            What it costs
+            {t.pricing.eyebrow}
           </p>
           <h2 className="u-display mt-3 text-headline">
-            One fee. No gap, no surprises.
+            {t.pricing.heading}
           </h2>
           <p className="mt-5 max-w-[48ch] text-[17px] leading-relaxed text-bone/75">
-            You will know exactly what you are paying before you book. No
-            &ldquo;it depends on your health fund&rdquo;, no separate
-            anaesthetist bill, no surgeon&rsquo;s gap arriving later.
+            {t.pricing.lede}
           </p>
 
           <div className="mt-9 max-w-md rounded-3xl bg-bone/[0.07] p-6 ring-1 ring-inset ring-bone/15 md:p-8">
@@ -156,7 +151,9 @@ export function Pricing() {
                 </div>
               ))}
               <div className="mt-3 flex items-baseline justify-between gap-4 border-t border-bone/20 pt-5">
-                <dt className="text-[15px] font-semibold text-bone">Out of pocket</dt>
+                <dt className="text-[15px] font-semibold text-bone">
+                  {t.pricing.outOfPocket}
+                </dt>
                 <dd className="u-display text-[clamp(2.4rem,6vw,3.25rem)] leading-none text-clay-soft">
                   ${pricing.outOfPocket}
                 </dd>
@@ -165,10 +162,7 @@ export function Pricing() {
           </div>
 
           <p className="mt-6 max-w-[52ch] text-sm leading-relaxed text-bone/60">
-            A ${pricing.deposit} deposit secures your booking, with the
-            ${pricing.balance} balance due on the day. We submit your Medicare
-            claim for you afterwards and the ${pricing.rebate} rebate is usually
-            in your account within 1–2 days.
+            {t.pricing.note(pricing)}
           </p>
 
           <button
@@ -176,14 +170,14 @@ export function Pricing() {
             onClick={open}
             className="u-btn u-btn-clay mt-8 h-13 px-8 py-4 text-[16px]"
           >
-            Book online
+            {t.cta.book}
           </button>
         </div>
 
         <figure className="relative aspect-[3/2] overflow-hidden rounded-3xl" data-reveal>
           <Image
             src="/img/consult-geoff.webp"
-            alt="Dr Geoff Cashion talking a patient through the procedure"
+            alt={t.pricing.photoAlt}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover"
@@ -197,18 +191,17 @@ export function Pricing() {
 /* ------------------------------------------------------------------ why us */
 
 export function WhyUs() {
+  const t = useCopy();
   return (
     <section className="bg-paper py-20 md:py-28">
       <div className="u-wrap grid gap-12 lg:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] lg:gap-20">
         <div data-reveal>
-          <p className="u-eyebrow">Why Vasectomy Australia</p>
-          <h2 className="u-display mt-3 text-headline">
-            Built around one procedure.
-          </h2>
+          <p className="u-eyebrow">{t.whyUs.eyebrow}</p>
+          <h2 className="u-display mt-3 text-headline">{t.whyUs.heading}</h2>
           <figure className="relative mt-8 aspect-[3/2] overflow-hidden rounded-3xl">
             <Image
               src="/img/doctors-together.webp"
-              alt="Dr Matt Valentine and Dr Geoff Cashion reviewing notes together"
+              alt={t.whyUs.photoAlt}
               fill
               sizes="(min-width: 1024px) 26rem, 100vw"
               className="object-cover"
@@ -217,7 +210,7 @@ export function WhyUs() {
         </div>
 
         <ul className="grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:pt-4">
-          {reasons.map((r, i) => (
+          {t.whyUs.reasons.map((r, i) => (
             <li
               key={r}
               data-reveal
@@ -241,9 +234,7 @@ export function WhyUs() {
           data-reveal
           className="border-t border-line pt-5 text-[13.5px] leading-relaxed text-ink-soft"
         >
-          Dr Geoff Cashion (AHPRA MED0001196484) and Dr Matt Valentine (AHPRA
-          MED0000972761) are registered Medical Practitioners with the
-          Australian Health Practitioner Regulation Agency.
+          {t.whyUs.registrationNote}
         </p>
       </div>
     </section>
@@ -253,22 +244,24 @@ export function WhyUs() {
 /* ---------------------------------------------------------------- recovery */
 
 export function Recovery() {
+  const t = useCopy();
   return (
     <section className="bg-bone py-20 md:py-28">
       <div className="u-wrap">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,30rem)] lg:gap-20">
           <div>
             <div className="max-w-xl" data-reveal>
-              <p className="u-eyebrow">Afterwards</p>
-              <h2 className="u-display mt-3 text-headline">The week after.</h2>
+              <p className="u-eyebrow">{t.recovery.eyebrow}</p>
+              <h2 className="u-display mt-3 text-headline">
+                {t.recovery.heading}
+              </h2>
               <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
-                Recovery is usually straightforward, and the part you control
-                matters most: no heavy lifting for the first week.
+                {t.recovery.lede}
               </p>
             </div>
 
             <dl className="mt-10">
-              {recovery.map((r, i) => (
+              {t.recovery.stages.map((r, i) => (
                 <div
                   key={r.when}
                   data-reveal
@@ -290,7 +283,7 @@ export function Recovery() {
             <div className="relative aspect-[3/4] overflow-hidden rounded-3xl lg:aspect-[4/5]">
               <Image
                 src="/img/recovery-home.webp"
-                alt="A man resting at home the day after his procedure"
+                alt={t.recovery.photoAlt}
                 fill
                 sizes="(min-width: 1024px) 30rem, 100vw"
                 className="object-cover"
@@ -318,6 +311,7 @@ function mapsSearchUrl(c: { name: string; address: string; mapsUrl?: string }) {
 export function Locations() {
   const { open } = useBooking();
   const { clinics, locations } = useLocation();
+  const t = useCopy();
   const single = clinics.length === 1;
 
   return (
@@ -325,14 +319,14 @@ export function Locations() {
       <div className="u-wrap">
         <div className="flex flex-wrap items-end justify-between gap-6" data-reveal>
           <div className="max-w-xl">
-            <p className="u-eyebrow">Where</p>
+            <p className="u-eyebrow">{t.locations.eyebrow}</p>
             <h2 className="u-display mt-3 text-headline">{locations.heading}</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
               {locations.lede}
             </p>
           </div>
           <button type="button" onClick={open} className="u-btn u-btn-primary h-12 px-7 py-3.5">
-            Book online
+            {t.cta.book}
           </button>
         </div>
 
@@ -347,7 +341,7 @@ export function Locations() {
           >
             <iframe
               src={locations.mapEmbed}
-              title={`Map showing ${clinics[0].name}, ${clinics[0].address}`}
+              title={t.locations.mapTitle(clinics[0].name, clinics[0].address)}
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
@@ -378,7 +372,7 @@ export function Locations() {
             <div>
               <p className="u-eyebrow">{clinics[0].region}</p>
               <h3 className="u-display mt-2 text-title">
-                Vasectomy Australia, {clinics[0].region}
+                {t.locations.cardHeading(clinics[0].region)}
               </h3>
               <p className="mt-3 text-[15.5px] font-medium text-ink">
                 {clinics[0].name}
@@ -392,7 +386,7 @@ export function Locations() {
                 rel="noopener noreferrer"
                 className="group mt-4 inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-teal"
               >
-                Open in Google Maps
+                {t.locations.openInMaps}
                 <svg
                   width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"
                   className="transition-transform duration-200 group-hover:translate-x-1"
@@ -409,7 +403,7 @@ export function Locations() {
                 onClick={open}
                 className="u-btn u-btn-primary h-12 px-7 py-3.5"
               >
-                Book online
+                {t.cta.book}
               </button>
               <a
                 href={site.phoneHref}
@@ -434,7 +428,7 @@ export function Locations() {
                 <div className="relative h-40 bg-sand">
                   <iframe
                     src={c.mapEmbed}
-                    title={`Map showing ${c.name}, ${c.address}`}
+                    title={t.locations.mapTitle(c.name, c.address)}
                     loading="lazy"
                     referrerPolicy="strict-origin-when-cross-origin"
                     className="absolute inset-0 h-full w-full border-0"
@@ -446,7 +440,7 @@ export function Locations() {
                 <h3 className="u-display text-[1.35rem]">{c.suburb}</h3>
                 {c.flagship && (
                   <span className="rounded-full bg-teal/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-teal">
-                    Main centre
+                    {t.locations.mainCentre}
                   </span>
                 )}
               </div>
@@ -464,7 +458,7 @@ export function Locations() {
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-teal"
                 >
-                  {c.learnMore ? "Clinic details" : "Open in Google Maps"}
+                  {c.learnMore ? t.locations.clinicDetails : t.locations.openInMaps}
                   <svg
                     width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"
                     className="transition-transform duration-200 group-hover:translate-x-1"
@@ -478,7 +472,7 @@ export function Locations() {
                   rel="noopener noreferrer"
                   className="text-[14px] font-semibold text-ink-soft underline underline-offset-4 transition hover:text-teal"
                 >
-                  Book here
+                  {t.locations.bookHere}
                 </a>
               </div>
               </div>
@@ -495,18 +489,17 @@ export function Locations() {
 
 export function Faq() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const t = useCopy();
+  const faqs = t.faq.items;
 
   return (
     <section id="faq" className="scroll-mt-24 bg-bone py-20 md:py-28">
       <div className="u-wrap grid gap-12 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-20">
         <div className="lg:sticky lg:top-28 lg:self-start" data-reveal>
-          <p className="u-eyebrow">Questions</p>
-          <h2 className="u-display mt-3 text-headline">
-            The things men actually ask.
-          </h2>
+          <p className="u-eyebrow">{t.faq.eyebrow}</p>
+          <h2 className="u-display mt-3 text-headline">{t.faq.heading}</h2>
           <p className="mt-5 text-[16px] leading-relaxed text-ink-soft">
-            Still unsure? A free phone consult with one of our doctors costs you
-            nothing and commits you to nothing.
+            {t.faq.lede}
           </p>
           <a
             href={site.phoneConsult}
@@ -514,7 +507,7 @@ export function Faq() {
             rel="noopener noreferrer"
             className="u-btn mt-6 h-12 border border-teal/25 bg-transparent px-6 py-3.5 text-[15px] text-teal hover:bg-teal hover:text-bone"
           >
-            Book a free phone consult
+            {t.faq.phoneConsult}
           </a>
         </div>
 
@@ -567,6 +560,7 @@ export function Faq() {
 export function ClosingCta() {
   const { open } = useBooking();
   const { cta } = useLocation();
+  const t = useCopy();
 
   return (
     <section className="relative isolate overflow-hidden">
@@ -593,15 +587,14 @@ export function ClosingCta() {
 
       <div className="u-wrap py-24 text-center md:py-32">
         <h2 className="u-display mx-auto max-w-[16ch] text-[clamp(2.2rem,5.2vw,4rem)] text-bone" data-reveal>
-          Book it, and stop thinking about it.
+          {t.closing.heading}
         </h2>
         <p
           className="mx-auto mt-6 max-w-[52ch] text-[17px] leading-relaxed text-bone/75"
           data-reveal
           style={{ ["--reveal-delay" as string]: "90ms" }}
         >
-          Same-day consult and procedure, no GP referral, and one flat
-          ${pricing.outOfPocket} out of pocket.
+          {t.closing.lede(pricing.outOfPocket)}
         </p>
         <div
           className="mt-9 flex flex-wrap items-center justify-center gap-3"
@@ -609,13 +602,13 @@ export function ClosingCta() {
           style={{ ["--reveal-delay" as string]: "160ms" }}
         >
           <button type="button" onClick={open} className="u-btn u-btn-clay h-13 px-8 py-4 text-[16px]">
-            Book online
+            {t.cta.book}
           </button>
           <a
             href={site.phoneHref}
             className="u-btn h-13 border border-bone/25 bg-transparent px-7 py-4 text-[16px] text-bone hover:bg-bone hover:text-teal-deep"
           >
-            Call {site.phoneLabel}
+            {t.closing.call(site.phoneLabel)}
           </a>
         </div>
       </div>
@@ -627,6 +620,7 @@ export function ClosingCta() {
 
 export function Footer() {
   const { footerLine } = useLocation();
+  const t = useCopy();
 
   return (
     <footer className="bg-paper py-14">
@@ -650,9 +644,9 @@ export function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-4 pt-6 text-[13.5px] text-ink-soft">
-          <p>© {new Date().getFullYear()} Vasectomy Australia. All rights reserved.</p>
+          <p>{t.footer.rights(new Date().getFullYear())}</p>
           <p>
-            Powered by{" "}
+            {t.footer.poweredBy}{" "}
             <a
               href={site.agency.href}
               target="_blank"

@@ -69,6 +69,7 @@ export const locations: Location[] = [
   tas.launceston,
 
   special.chinese,
+  special.chineseZh,
   special.sydneyBulkBilled,
 ];
 

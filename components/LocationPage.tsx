@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { Location } from "@/lib/locations";
 import { ROBOTS_DIRECTIVE } from "@/lib/seo";
+import { copyFor } from "@/lib/copy";
 import { LocationProvider } from "@/components/LocationContext";
 import { BookingProvider } from "@/components/BookingModal";
 import Header from "@/components/Header";
@@ -22,10 +23,15 @@ export function metadataFor(location: Location): Metadata {
 }
 
 export default function LocationPage({ location }: { location: Location }) {
+  const { htmlLang } = copyFor(location.lang);
+
   return (
     <LocationProvider location={location}>
       <BookingProvider>
         <Reveal />
+        {/* The root layout declares en-AU for the index; a translated page
+            re-declares its own language for the content it wraps. */}
+        <div lang={htmlLang}>
         <Header />
         <main>
           <Hero />
@@ -41,6 +47,7 @@ export default function LocationPage({ location }: { location: Location }) {
         </main>
         <Footer />
         <BackToTop />
+        </div>
       </BookingProvider>
     </LocationProvider>
   );

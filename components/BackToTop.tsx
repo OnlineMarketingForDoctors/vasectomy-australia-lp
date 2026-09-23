@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useCopy } from "./LocationContext";
 
 export default function BackToTop() {
   const [show, setShow] = useState(false);
+  const t = useCopy();
 
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > 900);
@@ -15,7 +17,7 @@ export default function BackToTop() {
   return (
     <button
       type="button"
-      aria-label="Back to top"
+      aria-label={t.backToTop}
       onClick={() =>
         window.scrollTo({
           top: 0,

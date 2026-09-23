@@ -140,3 +140,49 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------------------------------------------------------------- Chinese */
+
+/*
+ * Fraunces and Inter carry no CJK glyphs, so a Chinese page falls back
+ * glyph by glyph and ends up mixing two faces mid-sentence. Naming the
+ * platform's own CJK faces first keeps the run consistent; the Latin words
+ * that remain (Medicare, the price, the doctors' names) still come from
+ * Inter, which is what the source page does too.
+ */
+[lang^="zh"] {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Source Han Sans SC", "Noto Sans CJK SC", "Noto Sans SC",
+    var(--font-sans), sans-serif;
+}
+
+[lang^="zh"] .u-display {
+  font-family: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC",
+    "Noto Serif SC", "PingFang SC", "Microsoft YaHei", var(--font-display),
+    serif;
+  /* Latin display type is tracked in tight; Han characters are not. */
+  letter-spacing: 0;
+}
+
+/* Han characters are square, so a headline set at the Latin size overruns. */
+[lang^="zh"] h1.u-display {
+  font-size: clamp(1.9rem, 7.2vw, 2.5rem);
+}
+
+@media (min-width: 768px) {
+  [lang^="zh"] h1.u-display {
+    font-size: clamp(2rem, 3.4vw, 3.1rem);
+  }
+}
+
+/* The small-caps treatment does nothing for Han and just spreads it out. */
+[lang^="zh"] .u-eyebrow {
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+
+/* Chrome breaks Han text at any character unless told to weigh phrases. */
+[lang^="zh"] .u-display,
+[lang^="zh"] h1.u-display {
+  word-break: auto-phrase;
+}

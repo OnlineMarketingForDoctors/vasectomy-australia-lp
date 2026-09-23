@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import VideoPlayer from "./VideoPlayer";
-import { procedure } from "@/lib/content";
+import { useCopy } from "./LocationContext";
 
 /**
  * The signature section. Each step is pinned to the minute it happens at,
@@ -10,6 +10,8 @@ import { procedure } from "@/lib/content";
  * with. The numbers are elapsed minutes, not decorative step counters.
  */
 export default function Procedure() {
+  const t = useCopy();
+  const procedure = t.procedure.steps;
   const trackRef = useRef<HTMLOListElement>(null);
   const [progress, setProgress] = useState(0);
 
@@ -51,15 +53,12 @@ export default function Procedure() {
     <section id="how" className="relative scroll-mt-24 bg-bone py-20 md:py-28">
       <div className="u-wrap">
         <div className="max-w-2xl" data-reveal>
-          <p className="u-eyebrow">The appointment</p>
+          <p className="u-eyebrow">{t.procedure.eyebrow}</p>
           <h2 className="u-display mt-3 text-headline">
-            Fifteen minutes, start to finish.
+            {t.procedure.heading}
           </h2>
           <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
-            Most of the worry about a vasectomy comes from not knowing what
-            happens in the room. So here it is, minute by minute. You are awake
-            the whole time, under local anaesthetic, and you walk out on your
-            own two feet.
+            {t.procedure.lede}
           </p>
         </div>
 
@@ -113,21 +112,18 @@ export default function Procedure() {
             <VideoPlayer
               src="/video/how-it-works.mp4"
               poster="/img/how-it-works-poster.webp"
-              label="Dr Geoff Cashion explains the no-scalpel vasectomy"
-              caption="Dr Geoff Cashion, founder of Vasectomy Australia, on how the procedure works and what recovery looks like."
+              label={t.procedure.videoLabel}
+              caption={t.procedure.videoCaption}
             />
             <div className="mt-6 rounded-3xl border border-line bg-paper p-6">
-              <p className="u-eyebrow">Worth knowing</p>
+              <p className="u-eyebrow">{t.procedure.asideEyebrow}</p>
               <p className="mt-3 text-[15.5px] leading-relaxed text-ink-soft">
-                The only part most men actually feel is the anaesthetic at the
-                start — described in our reviews as{" "}
-                <span className="text-ink">&ldquo;discomfort for 2 seconds with the needle&rdquo;</span>.
-                After that the area is numb.
+                {t.procedure.asideBody}
+                <span className="text-ink">&ldquo;{t.procedure.asideQuote}&rdquo;</span>
+                {t.procedure.asideBodyAfter}
               </p>
               <p className="mt-4 border-t border-line pt-4 text-[15.5px] leading-relaxed text-ink-soft">
-                There are no stitches to remove, so there is no second
-                appointment. The next thing in your calendar is a semen analysis
-                at three months.
+                {t.procedure.asideSecond}
               </p>
             </div>
           </aside>
