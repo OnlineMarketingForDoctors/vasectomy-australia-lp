@@ -3,7 +3,6 @@ import { ROBOTS_DIRECTIVE } from "@/lib/seo";
 import { BookingProvider } from "@/components/BookingModal";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ReviewCarousel from "@/components/ReviewCarousel";
 import Procedure from "@/components/Procedure";
 import Reveal from "@/components/Reveal";
 import BackToTop from "@/components/BackToTop";
@@ -25,7 +24,6 @@ export default function SydneyLandingPage() {
       <Header />
       <main>
         <Hero />
-        <ReviewCarousel />
         <WhyUs />
         <Facts />
         <Procedure />

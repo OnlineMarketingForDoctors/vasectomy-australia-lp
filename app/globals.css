@@ -130,24 +130,8 @@
   transform: none;
 }
 
-/* Review marquee. Paused on hover and on keyboard focus within. */
-@keyframes u-marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.u-marquee-track {
-  display: flex;
-  width: max-content;
-  animation: u-marquee var(--marquee-duration, 90s) linear infinite;
-}
-.u-marquee:hover .u-marquee-track,
-.u-marquee:focus-within .u-marquee-track {
-  animation-play-state: paused;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .u-marquee-track { animation: none; }
   [data-reveal] { opacity: 1; transform: none; transition: none; }
   .u-btn:hover { transform: none; }
   *, *::before, *::after {
