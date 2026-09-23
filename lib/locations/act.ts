@@ -28,7 +28,9 @@ export const canberra: Location = loc({
       region: "Canberra",
       name: "Ginninderra Medical & Dental Centre",
       address: "Cnr Nettlefold Street &, Coulter Dr, Belconnen ACT 2617",
-      booking: `${TIMELY}/bb/book?location=197472&product=3201743%3ASV&staff=288783`,
+      // The Canberra page offers this calendar under two practitioners. Its
+      // own headline and Book button name Dr Matt Valentine, so this is his.
+      booking: `${TIMELY}/bb/book?location=197472&product=3201743%3ASV&staff=459829`,
       mapsUrl: "https://www.google.com/maps?cid=10105459329107868177",
     },
   ],
