@@ -14,6 +14,8 @@ export type Clinic = {
   name: string;
   address: string;
   booking: string;
+  /** The clinic's Google listing. Falls back to a maps search when absent. */
+  mapsUrl?: string;
   learnMore?: string;
   flagship?: boolean;
 };
@@ -37,8 +39,6 @@ export type Location = {
     desktop: string;
     mobile: string;
     alt: string;
-    /** Small floating picture that places the page at a glance. */
-    inset?: { src: string; alt: string; caption: string };
   };
 
   /**
@@ -198,11 +198,6 @@ export const newcastle: Location = {
     desktop: "/img/hero-clinic-desktop.webp",
     mobile: "/img/hero-mobile.webp",
     alt: "Dr Matt Valentine and Dr Geoff Cashion at Vasectomy Australia",
-    inset: {
-      src: "/img/newcastle-inset.webp",
-      alt: "Nobbys Head Lighthouse, Newcastle",
-      caption: "Newcastle",
-    },
   },
 
   googleRating: { score: "5.0", count: 507 },
@@ -227,6 +222,7 @@ export const newcastle: Location = {
       name: "Cooks Hill Healthcare Hub",
       address: "235 Darby St, Cooks Hill NSW 2300",
       booking: `${TIMELY}/book?location=173696&product=3012567%3ASV&staff=288783`,
+      mapsUrl: "https://maps.app.goo.gl/qF7XHSNGZcBGaqoS8",
     },
   ],
 };

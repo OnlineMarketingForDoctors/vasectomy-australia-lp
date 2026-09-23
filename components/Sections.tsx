@@ -290,10 +290,14 @@ export function Recovery() {
 
 /* --------------------------------------------------------------- locations */
 
-function mapsSearchUrl(c: { name: string; address: string }) {
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    `${c.name}, ${c.address}`
-  )}`;
+/** The clinic's own Google listing where we have it, a search otherwise. */
+function mapsSearchUrl(c: { name: string; address: string; mapsUrl?: string }) {
+  return (
+    c.mapsUrl ??
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      `${c.name}, ${c.address}`
+    )}`
+  );
 }
 
 export function Locations() {
