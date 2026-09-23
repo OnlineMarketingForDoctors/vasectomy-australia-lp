@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { site, pricing } from "@/lib/content";
+import { useLocation } from "./LocationContext";
 import { GoogleG, Stars } from "./GoogleMarks";
 import { useBooking } from "./BookingModal";
 
 function GoogleBadge() {
+  const { googleRating } = useLocation();
   return (
     <a
       href="https://www.google.com/search?q=Vasectomy+Australia+Sydney+reviews"
@@ -17,28 +19,68 @@ function GoogleBadge() {
       <span className="h-6 w-px bg-line" aria-hidden="true" />
       <span className="leading-tight">
         <span className="flex items-center gap-1.5">
-          <span className="text-[15px] font-bold text-ink">{site.rating.score}</span>
+          <span className="text-[15px] font-bold text-ink">
+            {googleRating ? googleRating.score : site.rating.score}
+          </span>
           <Stars size={13} />
         </span>
         <span className="block text-[11px] text-ink-soft">
-          {site.rating.count} Google reviews
+          {googleRating
+            ? `${googleRating.count} Google reviews`
+            : "Rated across Australia"}
         </span>
       </span>
     </a>
   );
 }
 
-function Headline({ className = "" }: { className?: string }) {
+function Headline({
+  className = "",
+  eyebrowClass,
+}: {
+  className?: string;
+  eyebrowClass: string;
+}) {
+  const { eyebrow, city } = useLocation();
   return (
-    <h1 className={`u-display ${className}`}>
-      Safe, effective and affordable{" "}
-      <span className="text-clay-soft">no-scalpel vasectomy</span>
-    </h1>
+    <>
+      <p className={`u-eyebrow ${eyebrowClass}`}>{eyebrow}</p>
+      <h1 className={`u-display ${className}`}>
+        Safe, effective and affordable{" "}
+        <span className="text-clay-soft">no-scalpel vasectomy</span>{" "}
+        in {city}
+      </h1>
+    </>
+  );
+}
+
+/** Small floating picture that places the page at a glance. */
+function CityInset({ className = "" }: { className?: string }) {
+  const { hero } = useLocation();
+  if (!hero.inset) return null;
+  return (
+    <figure
+      className={`overflow-hidden rounded-2xl bg-teal-deep shadow-[0_10px_40px_-12px_rgba(11,51,46,.65)] ring-1 ring-white/15 ${className}`}
+    >
+      <div className="relative aspect-[3/2]">
+        <Image
+          src={hero.inset.src}
+          alt={hero.inset.alt}
+          fill
+          sizes="240px"
+          className="object-cover"
+        />
+      </div>
+      <figcaption className="bg-white/95 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink">
+        {hero.inset.caption}
+      </figcaption>
+    </figure>
   );
 }
 
 export default function Hero() {
   const { open } = useBooking();
+  const { hero, heroIntro, heroWhere } = useLocation();
 
   return (
     <section id="top" className="relative bg-teal-deep">
@@ -46,8 +88,8 @@ export default function Hero() {
       <div className="relative -mt-16 md:mt-0 md:hidden">
         <div className="relative aspect-[4/5] w-full">
           <Image
-            src="/img/hero-mobile.webp"
-            alt="Dr Matt Valentine and Dr Geoff Cashion at the Sydney Vasectomy Centre"
+            src={hero.mobile}
+            alt={hero.alt}
             fill
             priority
             sizes="100vw"
@@ -69,6 +111,7 @@ export default function Hero() {
                 "linear-gradient(to bottom, rgba(11,51,46,.58) 0%, rgba(11,51,46,.28) 55%, rgba(11,51,46,0) 100%)",
             }}
           />
+          <CityInset className="absolute bottom-24 right-4 z-10 w-28" />
           <div
             className="pointer-events-none absolute inset-x-0 bottom-0 h-56"
             style={{
@@ -80,14 +123,16 @@ export default function Hero() {
 
         <div className="u-wrap relative bg-paper pt-7 pb-10">
           <GoogleBadge />
-          <Headline className="mt-5 text-[clamp(2.25rem,9.5vw,3.1rem)] text-ink" />
+          <Headline
+            eyebrowClass="mt-5"
+            className="mt-2 text-[clamp(2.1rem,8.6vw,2.9rem)] text-ink"
+          />
           <p className="mt-4 text-[17px] leading-relaxed text-ink-soft">
-            In Sydney, in about 15 minutes, under local anaesthetic.{" "}
+            {heroIntro}{" "}
             <strong className="font-semibold text-ink">
               ${pricing.outOfPocket} out of pocket
             </strong>{" "}
-            after your Medicare rebate — at the Sydney Vasectomy Centre in
-            Enmore, and eight more clinics across Sydney.
+            {heroWhere}
           </p>
           <div className="mt-6 flex flex-col gap-3">
             <button
@@ -111,8 +156,8 @@ export default function Hero() {
       <div className="relative hidden md:block">
         <div className="absolute inset-0">
           <Image
-            src="/img/hero-clinic-desktop.webp"
-            alt="Dr Matt Valentine and Dr Geoff Cashion at the Sydney Vasectomy Centre"
+            src={hero.desktop}
+            alt={hero.alt}
             fill
             priority
             sizes="100vw"
@@ -144,7 +189,8 @@ export default function Hero() {
             </div>
 
             <Headline
-              className="mt-7 text-[clamp(2.5rem,4.6vw,4.15rem)] text-bone"
+              eyebrowClass="mt-7 text-clay-soft"
+              className="mt-2.5 text-[clamp(2.2rem,4.1vw,3.7rem)] text-bone"
             />
 
             <p
@@ -152,12 +198,11 @@ export default function Hero() {
               style={{ ["--reveal-delay" as string]: "200ms" }}
               className="mt-6 max-w-[48ch] text-[18px] leading-relaxed text-bone/80 lg:text-[19px]"
             >
-              In Sydney, in about 15 minutes, under local anaesthetic.{" "}
+              {heroIntro}{" "}
               <strong className="font-semibold text-bone">
                 ${pricing.outOfPocket} out of pocket
               </strong>{" "}
-              after your Medicare rebate — at the Sydney Vasectomy Centre in
-              Enmore, and eight more clinics across Sydney.
+              {heroWhere}
             </p>
 
             <div
@@ -188,6 +233,11 @@ export default function Hero() {
               Same-day consult and procedure · No GP referral needed ·
               Free phone consults
             </p>
+
+            <CityInset
+              className="mt-7 w-32 lg:w-36"
+              data-reveal
+            />
           </div>
         </div>
       </div>

@@ -1,7 +1,8 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
-import { clinics, site } from "@/lib/content";
+import { site } from "@/lib/content";
+import { useLocation } from "./LocationContext";
 
 const BookingContext = createContext<{ open: () => void }>({ open: () => {} });
 
@@ -11,14 +12,21 @@ export function useBooking() {
 }
 
 export function BookingProvider({ children }: { children: React.ReactNode }) {
+  const { clinics } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const returnFocusTo = useRef<HTMLElement | null>(null);
 
   const open = useCallback(() => {
+    // Nothing to choose between when a location has one clinic — open its
+    // calendar directly rather than showing a picker with a single row.
+    if (clinics.length === 1) {
+      window.open(clinics[0].booking, "_blank", "noopener,noreferrer");
+      return;
+    }
     returnFocusTo.current = document.activeElement as HTMLElement;
     setIsOpen(true);
-  }, []);
+  }, [clinics]);
 
   const close = useCallback(() => {
     setIsOpen(false);

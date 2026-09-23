@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ROBOTS_DIRECTIVE } from "@/lib/seo";
-import { landingPages, site } from "@/lib/content";
+import { site } from "@/lib/content";
+import { locations } from "@/lib/locations";
 
 export const metadata: Metadata = {
   title: "Landing pages — Vasectomy Australia",
@@ -37,7 +38,7 @@ export default function Home() {
         </p>
 
         <ul className="mt-12 max-w-3xl">
-          {landingPages.map((p) => (
+          {locations.map((p) => (
             <li key={p.slug} className="border-t border-line">
               <Link
                 href={p.slug}
@@ -48,11 +49,11 @@ export default function Home() {
                     <span className="u-display text-title">{p.city}</span>
                     <span className="u-eyebrow">{p.state}</span>
                     <span className="text-[13px] text-ink-soft">
-                      {p.clinics} clinics
+                      {p.clinics.length} clinic{p.clinics.length === 1 ? "" : "s"}
                     </span>
                   </span>
                   <span className="mt-1.5 block max-w-[52ch] text-[15px] leading-relaxed text-ink-soft">
-                    {p.summary}
+                    {p.indexSummary}
                   </span>
                   <span className="mt-2 block font-mono text-[12.5px] text-ink-soft/80">
                     {p.slug}

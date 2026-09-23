@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { clinics, doctors, faqs, pricing, reasons, recovery, site } from "@/lib/content";
+import { doctors, faqs, pricing, reasons, recovery, site } from "@/lib/content";
+import { useLocation } from "./LocationContext";
 import { useBooking } from "./BookingModal";
 
 /* ------------------------------------------------------------------ facts */
@@ -291,6 +292,8 @@ export function Recovery() {
 
 export function Locations() {
   const { open } = useBooking();
+  const { clinics, locations } = useLocation();
+  const single = clinics.length === 1;
 
   return (
     <section id="locations" className="scroll-mt-24 bg-paper py-20 md:py-28">
@@ -298,10 +301,9 @@ export function Locations() {
         <div className="flex flex-wrap items-end justify-between gap-6" data-reveal>
           <div className="max-w-xl">
             <p className="u-eyebrow">Where</p>
-            <h2 className="u-display mt-3 text-headline">Nine clinics across Sydney.</h2>
+            <h2 className="u-display mt-3 text-headline">{locations.heading}</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-ink-soft">
-              Our main centre is in Enmore, with bookings also available from
-              Chatswood to Campbelltown.
+              {locations.lede}
             </p>
           </div>
           <button type="button" onClick={open} className="u-btn u-btn-primary h-12 px-7 py-3.5">
@@ -311,14 +313,67 @@ export function Locations() {
 
         <figure className="relative mt-12 aspect-[21/9] overflow-hidden rounded-3xl" data-reveal>
           <Image
-            src="/img/enmore-street.webp"
-            alt="Enmore Road in Sydney's inner west, near the Sydney Vasectomy Centre"
+            src={locations.image.src}
+            alt={locations.image.alt}
             fill
             sizes="100vw"
             className="object-cover"
           />
         </figure>
 
+        {single ? (
+          /* One clinic: a grid of one reads as a mistake, so the single
+             location gets a full-width card with the booking action on it. */
+          <div
+            data-reveal
+            className="mt-12 grid gap-8 rounded-3xl border border-line bg-bone/50 p-8 md:grid-cols-[1fr_auto] md:items-end md:p-10"
+          >
+            <div>
+              <p className="u-eyebrow">{clinics[0].region}</p>
+              <h3 className="u-display mt-2 text-title">
+                Vasectomy Australia, {clinics[0].region}
+              </h3>
+              <p className="mt-3 text-[15.5px] font-medium text-ink">
+                {clinics[0].name}
+              </p>
+              <p className="mt-1 text-[15.5px] leading-relaxed text-ink-soft">
+                {clinics[0].address}
+              </p>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                  `${clinics[0].name}, ${clinics[0].address}`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-4 inline-flex items-center gap-1.5 text-[14.5px] font-semibold text-teal"
+              >
+                Open in Google Maps
+                <svg
+                  width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"
+                  className="transition-transform duration-200 group-hover:translate-x-1"
+                >
+                  <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </div>
+
+            <div className="flex flex-col gap-3 md:items-end">
+              <button
+                type="button"
+                onClick={open}
+                className="u-btn u-btn-primary h-12 px-7 py-3.5"
+              >
+                Book online
+              </button>
+              <a
+                href={site.phoneHref}
+                className="u-display text-[22px] font-bold leading-none text-teal"
+              >
+                {site.phoneLabel}
+              </a>
+            </div>
+          </div>
+        ) : (
         <ul className="mt-12 grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
           {clinics.map((c, i) => (
             <li
@@ -359,6 +414,7 @@ export function Locations() {
             </li>
           ))}
         </ul>
+        )}
       </div>
     </section>
   );
@@ -439,6 +495,7 @@ export function Faq() {
 
 export function ClosingCta() {
   const { open } = useBooking();
+  const { cta } = useLocation();
 
   return (
     <section className="relative isolate overflow-hidden">
@@ -446,7 +503,7 @@ export function ClosingCta() {
           water once cropped into a tall phone viewport, so mobile gets a
           portrait composition that actually fills the section. */}
       <Image
-        src="/img/sydney-cta-mobile.webp"
+        src={cta.mobile}
         alt=""
         aria-hidden="true"
         fill
@@ -454,7 +511,7 @@ export function ClosingCta() {
         className="-z-10 object-cover md:hidden"
       />
       <Image
-        src="/img/sydney-harbour-cta.webp"
+        src={cta.desktop}
         alt=""
         aria-hidden="true"
         fill
@@ -498,6 +555,8 @@ export function ClosingCta() {
 /* ------------------------------------------------------------------ footer */
 
 export function Footer() {
+  const { footerLine } = useLocation();
+
   return (
     <footer className="bg-paper py-14">
       <div className="u-wrap">
@@ -505,7 +564,7 @@ export function Footer() {
           <div>
             <Image src="/img/logo-dark.webp" alt="Vasectomy Australia" width={200} height={34} className="h-8 w-auto" />
             <p className="mt-4 max-w-[38ch] text-[14.5px] leading-relaxed text-ink-soft">
-              No-scalpel, open-ended vasectomy across nine Sydney clinics.
+              {footerLine}
             </p>
           </div>
           <div className="text-[15px]">
