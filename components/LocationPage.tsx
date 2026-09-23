@@ -39,7 +39,7 @@ export default function LocationPage({ location }: { location: Location }) {
           <Facts />
           <Procedure />
           <Doctors />
-          <Pricing />
+          {location.showPricing && <Pricing />}
           <Recovery />
           <Locations />
           <Faq />

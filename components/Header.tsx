@@ -3,16 +3,17 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { site } from "@/lib/content";
-import { useCopy } from "./LocationContext";
+import { useCopy, useLocation } from "./LocationContext";
 import { useBooking } from "./BookingModal";
 
 export default function Header() {
   const { open } = useBooking();
   const t = useCopy();
+  const { showPricing } = useLocation();
   const NAV = [
     { label: t.nav.how, href: "#how" },
     { label: t.nav.doctors, href: "#doctors" },
-    { label: t.nav.price, href: "#price" },
+    ...(showPricing ? [{ label: t.nav.price, href: "#price" }] : []),
     { label: t.nav.locations, href: "#locations" },
     { label: t.nav.faq, href: "#faq" },
   ];

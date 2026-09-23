@@ -11,7 +11,12 @@
 
 export type Step = { at: string; unit: string; title: string; body: string };
 export type RecoveryStage = { when: string; body: string };
-export type Faq = { q: string; a: string };
+export type Faq = {
+  q: string;
+  a: string;
+  /** Quotes our fee. Dropped on a page that does not show the cost section. */
+  pricing?: boolean;
+};
 
 export type DoctorCopy = {
   role: string;
@@ -123,6 +128,8 @@ export type Copy = {
   closing: {
     heading: string;
     lede: (outOfPocket: number) => string;
+    /** For a page that does not quote a price. */
+    ledeNoPrice: string;
     call: (phone: string) => string;
   };
 

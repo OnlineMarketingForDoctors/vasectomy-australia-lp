@@ -254,10 +254,12 @@ export const en: Copy = {
       {
         q: "Can I use private health insurance?",
         a: "No, and it almost certainly works out cheaper this way. We operate in medical centres rather than private hospitals, and private health only helps when a urologist performs the procedure in a hospital or day surgery. Going that route you would typically pay an excess of $500–$1,000, a surgeon's gap fee of several hundred to over $1,000, and an anaesthetist's gap on top — often $2,000 or more out of pocket, with insurance. With us it is $597, whether you are insured or not.",
+        pricing: true,
       },
       {
         q: "How does the Medicare rebate work?",
         a: "Once you have had your vasectomy and paid, we process the rebate on your behalf. The payment usually lands in your nominated Medicare bank account within 48 hours. If it has not arrived a week later, email us and we will chase it up.",
+        pricing: true,
       },
     ],
   },
@@ -266,6 +268,8 @@ export const en: Copy = {
     heading: "Book it, and stop thinking about it.",
     lede: (outOfPocket) =>
       `Same-day consult and procedure, no GP referral, and one flat $${outOfPocket} out of pocket.`,
+    ledeNoPrice:
+      "Same-day consult and procedure, and no GP referral needed.",
     call: (phone) => `Call ${phone}`,
   },
 

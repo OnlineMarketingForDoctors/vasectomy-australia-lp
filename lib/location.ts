@@ -51,6 +51,16 @@ export type Location = {
   /** Hero supporting copy, either side of the out-of-pocket price. */
   heroIntro: string;
   heroWhere: string;
+  /** A line of its own under the headline. Omitted on most pages. */
+  heroSubheadline?: string;
+
+  /**
+   * Whether the page shows what the procedure costs. A page that does not —
+   * the bulk-billed one — also drops the price from the hero, the closing
+   * panel, the nav and the two FAQs that quote our fee, so it cannot quote a
+   * figure it has just said does not apply.
+   */
+  showPricing: boolean;
 
   hero: { desktop: string; mobile: string; alt: string };
 
@@ -96,12 +106,24 @@ const DEFAULT_CTA = {
 
 type LocationInput = Omit<
   Location,
-  "hero" | "cta" | "cityIn" | "googleRating" | "operatingDoctor" | "lang"
+  | "hero"
+  | "cta"
+  | "cityIn"
+  | "googleRating"
+  | "operatingDoctor"
+  | "lang"
+  | "showPricing"
 > &
   Partial<
     Pick<
       Location,
-      "hero" | "cta" | "cityIn" | "googleRating" | "operatingDoctor" | "lang"
+      | "hero"
+      | "cta"
+      | "cityIn"
+      | "googleRating"
+      | "operatingDoctor"
+      | "lang"
+      | "showPricing"
     >
   >;
 
@@ -110,6 +132,7 @@ export function loc(input: LocationInput): Location {
   return {
     ...input,
     lang: input.lang ?? "en",
+    showPricing: input.showPricing ?? true,
     cityIn: input.cityIn ?? `in ${input.city}`,
     hero: input.hero ?? DEFAULT_HERO,
     cta: input.cta ?? DEFAULT_CTA,

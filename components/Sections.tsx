@@ -489,8 +489,11 @@ export function Locations() {
 
 export function Faq() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const { showPricing } = useLocation();
   const t = useCopy();
-  const faqs = t.faq.items;
+  const faqs = showPricing
+    ? t.faq.items
+    : t.faq.items.filter((f) => !f.pricing);
 
   return (
     <section id="faq" className="scroll-mt-24 bg-bone py-20 md:py-28">
@@ -559,7 +562,7 @@ export function Faq() {
 
 export function ClosingCta() {
   const { open } = useBooking();
-  const { cta } = useLocation();
+  const { cta, showPricing } = useLocation();
   const t = useCopy();
 
   return (
@@ -594,7 +597,9 @@ export function ClosingCta() {
           data-reveal
           style={{ ["--reveal-delay" as string]: "90ms" }}
         >
-          {t.closing.lede(pricing.outOfPocket)}
+          {showPricing
+            ? t.closing.lede(pricing.outOfPocket)
+            : t.closing.ledeNoPrice}
         </p>
         <div
           className="mt-9 flex flex-wrap items-center justify-center gap-3"

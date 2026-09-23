@@ -46,7 +46,8 @@ function GoogleBadge() {
  */
 export default function Hero() {
   const { open } = useBooking();
-  const { hero, heroIntro, heroWhere, eyebrow, cityIn } = useLocation();
+  const { hero, heroIntro, heroWhere, heroSubheadline, eyebrow, cityIn, showPricing } =
+    useLocation();
   const t = useCopy();
 
   return (
@@ -131,16 +132,35 @@ export default function Hero() {
             {cityIn}
           </h1>
 
+          {heroSubheadline && (
+            <p
+              data-reveal
+              style={{ ["--reveal-delay" as string]: "140ms" }}
+              className="u-display mt-4 text-[clamp(1.25rem,4.6vw,1.6rem)] leading-snug text-clay md:mt-5 md:text-[clamp(1.35rem,2.1vw,1.9rem)] md:text-clay-soft"
+            >
+              {heroSubheadline}
+            </p>
+          )}
+
           <p
             data-reveal
             style={{ ["--reveal-delay" as string]: "200ms" }}
             className="mt-4 text-[17px] leading-relaxed text-ink-soft md:mt-6 md:max-w-[48ch] md:text-[18px] md:text-bone/80 lg:text-[19px]"
           >
-            {heroIntro}{" "}
-            <strong className="font-semibold text-ink md:text-bone">
-              {t.hero.outOfPocket(pricing.outOfPocket)}
-            </strong>{" "}
-            {heroWhere}
+            {/* A page with no cost section does not quote a figure here. */}
+            {showPricing ? (
+              <>
+                {heroIntro}{" "}
+                <strong className="font-semibold text-ink md:text-bone">
+                  {t.hero.outOfPocket(pricing.outOfPocket)}
+                </strong>{" "}
+                {heroWhere}
+              </>
+            ) : (
+              <>
+                {heroIntro} {heroWhere}
+              </>
+            )}
           </p>
 
           <div

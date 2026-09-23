@@ -57,11 +57,14 @@ export const sydneyBulkBilled: Location = loc({
   city: "Sydney",
   state: "NSW",
   eyebrow: "Enmore · Inner West",
-  metaTitle: "Vasectomy Sydney — One Flat Fee | Vasectomy Australia",
-  metaDescription: "No-scalpel, open-ended vasectomy at the Sydney Vasectomy Centre in Enmore. About 15 minutes under local anaesthetic, one flat fee, $597 out of pocket after your Medicare rebate.",
-  indexSummary: "No-scalpel vasectomy at the Sydney Vasectomy Centre in Enmore, on one flat fee.",
-  heroIntro: "In Sydney, in about 15 minutes, under local anaesthetic.",
-  heroWhere: "after your Medicare rebate — one flat fee at the Sydney Vasectomy Centre in Enmore. No health-fund gap, no separate anaesthetist bill.",
+  metaTitle: "Bulk Billed Vasectomy Sydney | Vasectomy Australia",
+  metaDescription: "Bulk billed no-scalpel, open-ended vasectomy at the Sydney Vasectomy Centre in Enmore. About 15 minutes under local anaesthetic.",
+  indexSummary: "Bulk billed no-scalpel vasectomy at the Sydney Vasectomy Centre in Enmore.",
+  /** The one page that does not show a price, so nothing here quotes one. */
+  showPricing: false,
+  heroSubheadline: "Permanent, safe, effective — and bulk billed.",
+  heroIntro: "In Sydney, in about 15 minutes, under local anaesthetic,",
+  heroWhere: "at the Sydney Vasectomy Centre in Enmore. No health-fund gap, no separate anaesthetist bill.",
   googleRating: {
     score: "5.0",
     count: 612,
@@ -76,7 +79,7 @@ export const sydneyBulkBilled: Location = loc({
     desktop: "/img/sydney-harbour-cta.webp",
     mobile: "/img/sydney-cta-mobile.webp",
   },
-  footerLine: "No-scalpel, open-ended vasectomy at the Sydney Vasectomy Centre, Enmore.",
+  footerLine: "Bulk billed no-scalpel, open-ended vasectomy at the Sydney Vasectomy Centre, Enmore.",
   clinics: [
     {
       suburb: "Enmore",
