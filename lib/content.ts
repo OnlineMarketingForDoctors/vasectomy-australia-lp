@@ -303,3 +303,28 @@ export const faqs = [
     a: "Once you have had your vasectomy and paid, we process the rebate on your behalf. The payment usually lands in your nominated Medicare bank account within 48 hours. If it has not arrived a week later, email us and we will chase it up.",
   },
 ];
+
+export type LandingPage = {
+  slug: string;
+  city: string;
+  state: string;
+  /** Short line for the index listing. */
+  summary: string;
+  clinics: number;
+  live: boolean;
+};
+
+/**
+ * The index at / lists these. Adding a location is one entry plus its route.
+ */
+export const landingPages: LandingPage[] = [
+  {
+    slug: "/sydney",
+    city: "Sydney",
+    state: "NSW",
+    summary:
+      "No-scalpel vasectomy across nine Sydney clinics, from Enmore to Campbelltown.",
+    clinics: 9,
+    live: true,
+  },
+];

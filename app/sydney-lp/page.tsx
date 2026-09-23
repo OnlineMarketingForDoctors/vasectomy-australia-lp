@@ -1,41 +1,14 @@
-import type { Metadata } from "next";
-import { ROBOTS_DIRECTIVE } from "@/lib/seo";
-import { BookingProvider } from "@/components/BookingModal";
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Procedure from "@/components/Procedure";
-import Reveal from "@/components/Reveal";
-import BackToTop from "@/components/BackToTop";
-import {
-  ClosingCta, Doctors, Faq, Facts, Footer, Locations, Pricing, Recovery, WhyUs,
-} from "@/components/Sections";
+import { permanentRedirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Vasectomy Sydney | No-Scalpel Vasectomy — Vasectomy Australia",
-  description:
-    "No-scalpel, open-ended vasectomy in Sydney. About 15 minutes under local anaesthetic, $597 out of pocket after your Medicare rebate. Nine clinics across Sydney.",
-  robots: ROBOTS_DIRECTIVE,
-};
-
-export default function SydneyLandingPage() {
-  return (
-    <BookingProvider>
-      <Reveal />
-      <Header />
-      <main>
-        <Hero />
-        <WhyUs />
-        <Facts />
-        <Procedure />
-        <Doctors />
-        <Pricing />
-        <Recovery />
-        <Locations />
-        <Faq />
-        <ClosingCta />
-      </main>
-      <Footer />
-      <BackToTop />
-    </BookingProvider>
-  );
+/**
+ * The Sydney page was first published at /sydney-lp and that link has been
+ * shared, so the old path is kept and redirected.
+ *
+ * This is a route rather than a next.config redirect on purpose: redirects
+ * declared in next.config are served by the router before the headers config
+ * runs, so they answer without the X-Robots-Tag that CLAUDE.md requires on
+ * every route. As a page, it gets the header like anything else.
+ */
+export default function SydneyLpRedirect() {
+  permanentRedirect("/sydney");
 }
