@@ -41,6 +41,7 @@ export const sydney: Location = loc({
       name: "The Sydney Vasectomy Centre",
       address: "Enmore Medical Practice, 134–146 Enmore Rd, Enmore NSW 2042",
       booking: `${TIMELY}/bb/book?location=157255&product=2451305%3ASV&staff=288783`,
+      mapsUrl: "https://www.google.com/maps?cid=7543514749350888925",
       learnMore: "https://vasectomyaustralia.com.au/sydney-vasectomy-centre/",
       flagship: true,
     },
@@ -66,6 +67,7 @@ export const sydney: Location = loc({
       name: "Warringah Medical & Dental Centre",
       address: "10 Dale St, Brookvale NSW 2100",
       booking: `${TIMELY}/bb/book?location=183680&product=1842369%3ASV&staff=288783`,
+      mapsUrl: "https://www.google.com/maps?cid=8484909919271390054",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-northern-beaches-sydney/",
     },
     {
