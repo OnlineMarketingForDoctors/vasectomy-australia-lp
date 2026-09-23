@@ -1,5 +1,5 @@
 /** Victoria. Generated from the live landing pages; edit here, not there. */
-import { loc, TIMELY, TIMELY_CHOOSE, type Location } from "../location";
+import { loc, TIMELY, type Location } from "../location";
 
 export const melbourne: Location = loc({
   slug: "/melbourne",
@@ -7,41 +7,31 @@ export const melbourne: Location = loc({
   state: "VIC",
   eyebrow: "Melbourne · Victoria",
   metaTitle: "Vasectomy Melbourne | No-Scalpel Vasectomy — Vasectomy Australia",
-  metaDescription: "No-scalpel, open-ended vasectomy in Melbourne. About 15 minutes under local anaesthetic, $597 out of pocket after your Medicare rebate. Prahran, Gladstone Park and Casey.",
-  indexSummary: "No-scalpel vasectomy across three Melbourne clinics, from Prahran to Casey.",
+  metaDescription: "No-scalpel, open-ended vasectomy in Melbourne. About 15 minutes under local anaesthetic, $597 out of pocket after your Medicare rebate. Prahran and Casey.",
+  indexSummary: "No-scalpel vasectomy at two Melbourne clinics, Prahran and Casey.",
   heroIntro: "In Melbourne, in about 15 minutes, under local anaesthetic.",
-  heroWhere: "after your Medicare rebate — at the Melbourne Vasectomy Centre in Prahran, and two more clinics across the city.",
+  heroWhere: "after your Medicare rebate — at the Melbourne Vasectomy Centre on Commercial Road, Prahran, and at Casey.",
   operatingDoctor: "both",
   locations: {
-    heading: "Three clinics across Melbourne.",
-    lede: "Our main centre is on Commercial Road in Prahran, with bookings also available at Gladstone Park and Casey.",
+    heading: "Two clinics across Melbourne.",
+    lede: "Our main centre is on Commercial Road in Prahran, with bookings also available at Casey.",
   },
   cta: {
     desktop: "/img/melbourne-cta.webp",
     mobile: "/img/melbourne-cta-mobile.webp",
   },
-  footerLine: "No-scalpel, open-ended vasectomy across three Melbourne clinics.",
+  footerLine: "No-scalpel, open-ended vasectomy at our Prahran and Casey clinics.",
   clinics: [
     {
       suburb: "Prahran",
       region: "Inner Melbourne",
       name: "The Melbourne Vasectomy Centre",
-      address: "First Floor, 54 Commercial Rd, Prahran VIC 3181",
+      address: "First Floor, 54 Commercial Road, Prahran, Melbourne VIC 3181",
       booking: `${TIMELY}/bb/book?location=199369&product=2909739%3ASV`,
       mapsUrl: "https://www.google.com/maps?cid=9355928693394284610",
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12603.889615841434!2d144.9929394!3d-37.8375319!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x81d6ef93a9a6a042!2sVasectomy%20Australia%20-%20Melbourne%20Vasectomy%20Centre!5e0!3m2!1sen!2sau!4v1675510790460!5m2!1sen!2sau",
       learnMore: "https://vasectomyaustralia.com.au/melbourne-vasectomy-centre/",
       flagship: true,
-    },
-    {
-      suburb: "Gladstone Park",
-      region: "Northern Melbourne",
-      name: "Melbourne Vasectomy Centre – Gladstone Park",
-      address: "Shop 102, Gladstone Park Shopping Centre, Gladstone Park Drive, Gladstone Park VIC 3043",
-      booking: TIMELY_CHOOSE,
-      mapsUrl: "https://www.google.com/maps?cid=8092469443229750457",
-      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3157.3027033537983!2d144.88242571572574!3d-37.68908947977514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65b0827e021ed%3A0x704e3a15376994b9!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1610658698840!5m2!1sen!2sau",
-      learnMore: "https://vasectomyaustralia.com.au/vasectomy-melbourne-gladstone-park/",
     },
     {
       suburb: "Clyde",

@@ -8,13 +8,13 @@ export const perth: Location = loc({
   eyebrow: "Perth · Western Australia",
   metaTitle: "Vasectomy Perth | No-Scalpel Vasectomy — Vasectomy Australia",
   metaDescription: "No-scalpel, open-ended vasectomy in Perth. About 15 minutes under local anaesthetic, $597 out of pocket after your Medicare rebate. Five clinics across Perth.",
-  indexSummary: "No-scalpel vasectomy across five Perth clinics, from Morley to Rockingham.",
+  indexSummary: "No-scalpel vasectomy across five Perth clinics, from Kiara to Rockingham.",
   heroIntro: "In Perth, in about 15 minutes, under local anaesthetic.",
-  heroWhere: "after your Medicare rebate — at the Perth Vasectomy Centre in Morley, and four more clinics across the city.",
+  heroWhere: "after your Medicare rebate — at the Perth Vasectomy Centre in Kiara, and four more clinics across the city.",
   operatingDoctor: "matt",
   locations: {
     heading: "Five clinics across Perth.",
-    lede: "Our main centre is on Walter Road East in Morley, with bookings also available from Hillarys to Rockingham.",
+    lede: "Our main centre is on Aussat Drive in Kiara, with bookings also available from Hillarys to Rockingham.",
   },
   cta: {
     desktop: "/img/perth-cta.webp",
@@ -23,10 +23,14 @@ export const perth: Location = loc({
   footerLine: "No-scalpel, open-ended vasectomy across five Perth clinics.",
   clinics: [
     {
-      suburb: "Morley",
+      // Timely books this calendar as "The Perth Vasectomy Centre in Kiara",
+      // and the map embed below already pins Kiara (-31.8866, 115.9372). Only
+      // the address line on the landing page still read Morley, so that is
+      // what changed here; the listing and the embed were already right.
+      suburb: "Kiara",
       region: "North East Perth",
       name: "The Perth Vasectomy Centre",
-      address: "Unit 4, 515 Walter Road East, Morley WA 6062 (co-located with East Morley Medical Centre)",
+      address: "Level 1, 64 Aussat Drive, Kiara WA 6054 (co-located with Lockridge Medical Centre)",
       booking: `${TIMELY}/bb/book?location=299909&product=3483059%3ASV`,
       mapsUrl: "https://www.google.com/maps?cid=17198106246768663939",
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13550.93630463197!2d115.9372373!3d-31.8866467!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32b17e13cd82ff%3A0xeeabf28310129d83!2sVasectomy%20Australia%20-%20Perth%20Vasectomy%20Centre!5e0!3m2!1sen!2sau!4v1692012326753!5m2!1sen!2sau",

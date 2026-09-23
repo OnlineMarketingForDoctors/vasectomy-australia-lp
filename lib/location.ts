@@ -11,9 +11,6 @@ import type { Lang } from "./copy";
 
 export const TIMELY = "https://bookings.gettimely.com/vasectomyaustralia";
 
-/** Where a clinic has no calendar of its own, Timely asks which one you want. */
-export const TIMELY_CHOOSE = TIMELY;
-
 export type Clinic = {
   suburb: string;
   /** Region as VA's booking system labels it. Hidden when it equals suburb. */

@@ -1,5 +1,5 @@
 /** Pages that are not a city. Generated from the live landing pages; edit here, not there. */
-import { loc, TIMELY, TIMELY_CHOOSE, type Location } from "../location";
+import { loc, TIMELY, type Location } from "../location";
 
 export const chinese: Location = loc({
   slug: "/chinese",
@@ -15,7 +15,7 @@ export const chinese: Location = loc({
   operatingDoctor: "geoff",
   locations: {
     heading: "Three centres, with a Chinese language option.",
-    lede: "Sydney at Enmore, Melbourne at Gladstone Park, and Adelaide at Beulah Park.",
+    lede: "Sydney at Enmore, Melbourne at Prahran, and Adelaide at Beulah Park.",
   },
   footerLine: "No-scalpel, open-ended vasectomy with a Chinese language option.",
   clinics: [
@@ -31,14 +31,14 @@ export const chinese: Location = loc({
       flagship: true,
     },
     {
-      suburb: "Gladstone Park",
+      suburb: "Prahran",
       region: "Melbourne",
-      name: "Melbourne Vasectomy Centre – Gladstone Park",
-      address: "Shop 102, Gladstone Park Shopping Centre, Gladstone Park Drive, Gladstone Park VIC 3043",
-      booking: TIMELY_CHOOSE,
-      mapsUrl: "https://www.google.com/maps?cid=8092469443229750457",
-      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d404134.7486437753!2d144.884614!3d-37.689089!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x704e3a15376994b9!2sVasectomy%20Australia%20-%20Melbourne%20North!5e0!3m2!1sen!2sau!4v1638227525728!5m2!1sen!2sau",
-      learnMore: "https://vasectomyaustralia.com.au/vasectomy-melbourne-gladstone-park/",
+      name: "The Melbourne Vasectomy Centre",
+      address: "First Floor, 54 Commercial Road, Prahran, Melbourne VIC 3181",
+      booking: `${TIMELY}/bb/book?location=199369&product=2909739%3ASV`,
+      mapsUrl: "https://www.google.com/maps?cid=9355928693394284610",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12603.889615841434!2d144.9929394!3d-37.8375319!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x81d6ef93a9a6a042!2sVasectomy%20Australia%20-%20Melbourne%20Vasectomy%20Centre!5e0!3m2!1sen!2sau!4v1675510790460!5m2!1sen!2sau",
+      learnMore: "https://vasectomyaustralia.com.au/melbourne-vasectomy-centre/",
     },
     {
       suburb: "Beulah Park",
@@ -111,7 +111,7 @@ export const chineseZh: Location = loc({
   heroWhere: "— 悉尼、墨尔本与阿德莱德三家中心，均可提供中文服务。",
   locations: {
     heading: "三家中心，均提供中文服务。",
-    lede: "悉尼 Enmore、墨尔本 Gladstone Park、阿德莱德 Beulah Park。",
+    lede: "悉尼 Enmore、墨尔本 Prahran、阿德莱德 Beulah Park。",
   },
   footerLine: "提供中文服务的无刀口、开放式输精管结扎手术。",
 });
