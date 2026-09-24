@@ -299,11 +299,16 @@ export function Recovery() {
 /* --------------------------------------------------------------- locations */
 
 /** The clinic's own Google listing where we have it, a search otherwise. */
-function mapsSearchUrl(c: { name: string; address: string; mapsUrl?: string }) {
+/** tel: link for a clinic's own number, spaces and all. */
+function telHref(phone: string) {
+  return `tel:${phone.replace(/[^\d+]/g, "")}`;
+}
+
+function mapsSearchUrl(c: { name?: string; address: string; mapsUrl?: string }) {
   return (
     c.mapsUrl ??
     `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      `${c.name}, ${c.address}`
+      `${c.name ?? "Vasectomy Australia"}, ${c.address}`
     )}`
   );
 }
@@ -374,12 +379,25 @@ export function Locations() {
               <h3 className="u-display mt-2 text-title">
                 {t.locations.cardHeading(clinics[0].region)}
               </h3>
-              <p className="mt-3 text-[15.5px] font-medium text-ink">
-                {clinics[0].name}
-              </p>
-              <p className="mt-1 text-[15.5px] leading-relaxed text-ink-soft">
+              {clinics[0].name && (
+                <p className="mt-3 text-[15.5px] font-medium text-ink">
+                  {clinics[0].name}
+                </p>
+              )}
+              <p className="mt-3 text-[15.5px] leading-relaxed text-ink-soft">
                 {clinics[0].address}
               </p>
+              {clinics[0].phone && (
+                <p className="mt-3 text-[15.5px] text-ink-soft">
+                  {t.locations.clinicPhone}{" "}
+                  <a
+                    href={telHref(clinics[0].phone)}
+                    className="font-semibold text-teal underline underline-offset-2"
+                  >
+                    {clinics[0].phone}
+                  </a>
+                </p>
+              )}
               <a
                 href={mapsSearchUrl(clinics[0])}
                 target="_blank"
@@ -447,9 +465,21 @@ export function Locations() {
               {c.region !== c.suburb && (
                 <p className="u-eyebrow mt-1.5">{c.region}</p>
               )}
-              <p className="mt-2 text-[13.5px] font-medium text-ink">{c.name}</p>
-              <p className="mt-1.5 flex-1 text-[14px] leading-relaxed text-ink-soft">
+              {c.name && (
+                <p className="mt-2 text-[13.5px] font-medium text-ink">{c.name}</p>
+              )}
+              <p className="mt-1.5 text-[14px] leading-relaxed text-ink-soft">
                 {c.address}
+              </p>
+              <p className="flex-1">
+                {c.phone && (
+                  <a
+                    href={telHref(c.phone)}
+                    className="relative z-10 mt-1.5 inline-block text-[14px] font-semibold text-teal"
+                  >
+                    {c.phone}
+                  </a>
+                )}
               </p>
               <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
                 <a

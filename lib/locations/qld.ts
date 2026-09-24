@@ -5,17 +5,20 @@ export const brisbane: Location = loc({
   slug: "/brisbane",
   city: "Brisbane",
   state: "QLD",
-  eyebrow: "West End · Brisbane",
+  eyebrow: "Paddington · Brisbane",
   metaTitle: "Vasectomy Brisbane | No-Scalpel Vasectomy — Vasectomy Australia",
-  metaDescription: "No-scalpel, open-ended vasectomy in Brisbane. About 15 minutes under local anaesthetic, $597 out of pocket after your Medicare rebate. West End, at West Village.",
-  indexSummary: "No-scalpel vasectomy in Brisbane, at West Village in West End.",
+  metaDescription: "No-scalpel, open-ended vasectomy in Brisbane. About 15 minutes under local anaesthetic, $597 out of pocket after your Medicare rebate. Paddington, on Given Terrace.",
+  indexSummary: "No-scalpel vasectomy in Brisbane, at Paddington on Given Terrace.",
   heroIntro: "In Brisbane, in about 15 minutes, under local anaesthetic.",
-  heroWhere: "after your Medicare rebate — at Next Practice Health in West Village, West End.",
+  heroWhere: "after your Medicare rebate — on Given Terrace at Paddington, a few minutes from the CBD.",
   operatingDoctor: "matt",
   locations: {
     heading: "Where to find us in Brisbane.",
-    lede: "One clinic, on the first floor of the Eaves Building at West Village, a few minutes from the CBD.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14158.967682083625!2d153.0124381!3d-27.4772929!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9151771661b4ed%3A0x517433532a791645!2sVasectomy%20Australia%20-%20Brisbane!5e0!3m2!1sen!2sau!4v1699437080281!5m2!1sen!2sau",
+    lede: "One clinic, on Given Terrace at Paddington, a few minutes west of the CBD.",
+    /* A search embed on the new address rather than a place embed: the old
+       one pinned West End, and the Google listing has not moved yet. Swap it
+       for the place embed once the listing is updated. */
+    mapEmbed: "https://maps.google.com/maps?q=Vasectomy%20Australia%2C%20Shop%201%2C%20183%20Given%20Terrace%2C%20Paddington%20QLD%204064&output=embed",
   },
   cta: {
     desktop: "/img/brisbane-cta.webp",
@@ -24,12 +27,11 @@ export const brisbane: Location = loc({
   footerLine: "No-scalpel, open-ended vasectomy in Brisbane.",
   clinics: [
     {
-      suburb: "West End",
+      suburb: "Paddington",
       region: "Brisbane",
-      name: "Next Practice Health",
-      address: "Level 1, The Eaves Building, West Village / 51 Mollison St, West End QLD 4101",
-      booking: `${TIMELY}/bb/book?location=308321&product=3637685%3ASV&staff=459829`,
-      mapsUrl: "https://www.google.com/maps?cid=5869372646658479685",
+      address: "Shop 1, 183 Given Terrace, Paddington QLD 4064",
+      booking: `${TIMELY}/bb/book?location=417351&product=5494631%3ASV&staff=459829`,
+      phone: "+61 7 3132 3224",
     },
   ],
 });
@@ -214,34 +216,6 @@ export const toowoomba: Location = loc({
   ],
 });
 
-export const herveyBay: Location = loc({
-  slug: "/hervey-bay",
-  city: "Hervey Bay",
-  state: "QLD",
-  eyebrow: "Eli Waters · Hervey Bay",
-  metaTitle: "Vasectomy Hervey Bay | No-Scalpel Vasectomy — Vasectomy Australia",
-  metaDescription: "No-scalpel, open-ended vasectomy in Hervey Bay. About 15 minutes under local anaesthetic, $597 out of pocket after your Medicare rebate. Eli Waters, on Guest Circuit.",
-  indexSummary: "No-scalpel vasectomy in Hervey Bay, at Eli Waters.",
-  heroIntro: "In Hervey Bay, in about 15 minutes, under local anaesthetic.",
-  heroWhere: "after your Medicare rebate — at the Eli Waters Medical Centre on Guest Circuit.",
-  operatingDoctor: "matt",
-  locations: {
-    heading: "Where to find us in Hervey Bay.",
-    lede: "One clinic, on Guest Circuit at Eli Waters.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14429.904512755791!2d152.8130751!3d-25.2882025!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6beb7f3bd292b23d%3A0x305d9d9d50ddd395!2sVasectomy%20Australia%20-%20Hervey%20Bay!5e0!3m2!1sen!2sus!4v1696654666214!5m2!1sen!2sus",
-  },
-  footerLine: "No-scalpel, open-ended vasectomy in Hervey Bay and the Fraser Coast.",
-  clinics: [
-    {
-      suburb: "Eli Waters",
-      region: "Hervey Bay",
-      name: "Eli Waters Medical Centre",
-      address: "1/1 Guest Circuit, Eli Waters QLD 4655",
-      booking: `${TIMELY}/bb/book?location=305799&product=3592692%3ASV&staff=459829`,
-      mapsUrl: "https://www.google.com/maps?cid=3485114985646773141",
-    },
-  ],
-});
 
 export const logan: Location = loc({
   slug: "/logan",

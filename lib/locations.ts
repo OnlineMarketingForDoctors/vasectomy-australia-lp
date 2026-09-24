@@ -54,11 +54,11 @@ export const locations: Location[] = [
   qld.springfield,
   qld.morayfield,
   qld.toowoomba,
-  qld.herveyBay,
   qld.mackay,
   qld.rockhampton,
   qld.townsville,
 
+  vic.gladstonePark,
   vic.geelong,
   vic.casey,
   vic.ballarat,

@@ -197,12 +197,14 @@ export const en: Copy = {
 
   locations: {
     eyebrow: "Where",
+    clinicPhone: "Clinic direct:",
     openInMaps: "Open in Google Maps",
     clinicDetails: "Clinic details",
     bookHere: "Book here",
     mainCentre: "Main centre",
     cardHeading: (region) => `Vasectomy Australia, ${region}`,
-    mapTitle: (name, address) => `Map showing ${name}, ${address}`,
+    mapTitle: (name, address) =>
+      `Map showing ${name ? `${name}, ` : ""}${address}`,
   },
 
   faq: {

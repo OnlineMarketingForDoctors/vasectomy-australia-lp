@@ -109,12 +109,13 @@ export type Copy = {
 
   locations: {
     eyebrow: string;
+    clinicPhone: string;
     openInMaps: string;
     clinicDetails: string;
     bookHere: string;
     mainCentre: string;
     cardHeading: (region: string) => string;
-    mapTitle: (name: string, address: string) => string;
+    mapTitle: (name: string | undefined, address: string) => string;
   };
 
   faq: {

@@ -202,12 +202,13 @@ export const zh: Copy = {
 
   locations: {
     eyebrow: "诊所位置",
+    clinicPhone: "诊所直线电话：",
     openInMaps: "在 Google 地图中打开",
     clinicDetails: "诊所详情",
     bookHere: "预约此处",
     mainCentre: "主中心",
     cardHeading: (region) => `Vasectomy Australia，${region}`,
-    mapTitle: (name, address) => `地图：${name}，${address}`,
+    mapTitle: (name, address) => `地图：${name ? `${name}，` : ""}${address}`,
   },
 
   faq: {

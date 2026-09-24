@@ -7,20 +7,20 @@ export const melbourne: Location = loc({
   state: "VIC",
   eyebrow: "Melbourne · Victoria",
   metaTitle: "Vasectomy Melbourne | No-Scalpel Vasectomy — Vasectomy Australia",
-  metaDescription: "No-scalpel, open-ended vasectomy in Melbourne. About 15 minutes under local anaesthetic, $597 out of pocket after your Medicare rebate. Prahran and Casey.",
-  indexSummary: "No-scalpel vasectomy at two Melbourne clinics, Prahran and Casey.",
+  metaDescription: "No-scalpel, open-ended vasectomy in Melbourne. About 15 minutes under local anaesthetic, $597 out of pocket after your Medicare rebate. Prahran, Gladstone Park and Casey.",
+  indexSummary: "No-scalpel vasectomy across three Melbourne clinics, from Prahran to Casey.",
   heroIntro: "In Melbourne, in about 15 minutes, under local anaesthetic.",
-  heroWhere: "after your Medicare rebate — at the Melbourne Vasectomy Centre on Commercial Road, Prahran, and at Casey.",
+  heroWhere: "after your Medicare rebate — at the Melbourne Vasectomy Centre in Prahran, and two more clinics across the city.",
   operatingDoctor: "both",
   locations: {
-    heading: "Two clinics across Melbourne.",
-    lede: "Our main centre is on Commercial Road in Prahran, with bookings also available at Casey.",
+    heading: "Three clinics across Melbourne.",
+    lede: "Our main centre is on Commercial Road in Prahran, with bookings also available at Gladstone Park and Casey.",
   },
   cta: {
     desktop: "/img/melbourne-cta.webp",
     mobile: "/img/melbourne-cta-mobile.webp",
   },
-  footerLine: "No-scalpel, open-ended vasectomy at our Prahran and Casey clinics.",
+  footerLine: "No-scalpel, open-ended vasectomy across three Melbourne clinics.",
   clinics: [
     {
       suburb: "Prahran",
@@ -32,6 +32,16 @@ export const melbourne: Location = loc({
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12603.889615841434!2d144.9929394!3d-37.8375319!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x81d6ef93a9a6a042!2sVasectomy%20Australia%20-%20Melbourne%20Vasectomy%20Centre!5e0!3m2!1sen!2sau!4v1675510790460!5m2!1sen!2sau",
       learnMore: "https://vasectomyaustralia.com.au/melbourne-vasectomy-centre/",
       flagship: true,
+    },
+    {
+      suburb: "Gladstone Park",
+      region: "Northern Melbourne",
+      name: "Gladstone Park Superclinic",
+      address: "102 Gladstone Park Drive, Gladstone Park VIC 3043",
+      booking: `${TIMELY}/bb/book?location=173697&product=1833368%3ASV&staff=459829`,
+      mapsUrl: "https://www.google.com/maps?cid=8092469443229750457",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3157.3027033537983!2d144.88242571572574!3d-37.68908947977514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65b0827e021ed%3A0x704e3a15376994b9!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1610658698840!5m2!1sen!2sau",
+      learnMore: "https://vasectomyaustralia.com.au/vasectomy-melbourne-gladstone-park/",
     },
     {
       suburb: "Clyde",
@@ -248,6 +258,50 @@ export const regionalVic: Location = loc({
       mapsUrl: "https://www.google.com/maps?cid=2190580672489058087",
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12897.800937871682!2d146.9176482!3d-36.0825113!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b223f356eeb5085%3A0x1e668183f38bef27!2sVasectomy%20Australia%20-%20Albury%20Wodonga!5e0!3m2!1sen!2sca!4v1697115764409!5m2!1sen!2sca",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-albury-wodonga/",
+    },
+  ],
+});
+
+/**
+ * Gladstone Park has a landing page of its own as well as a card on
+ * /melbourne, because it draws from Melbourne's north rather than the city.
+ */
+export const gladstonePark: Location = loc({
+  slug: "/gladstone-park",
+  city: "Gladstone Park",
+  state: "VIC",
+  eyebrow: "Gladstone Park · Northern Melbourne",
+  metaTitle:
+    "Vasectomy Gladstone Park | No-Scalpel Vasectomy — Vasectomy Australia",
+  metaDescription:
+    "No-scalpel, open-ended vasectomy at Gladstone Park in Melbourne's north. About 15 minutes under local anaesthetic, $597 out of pocket after your Medicare rebate.",
+  indexSummary:
+    "No-scalpel vasectomy at Gladstone Park, in Melbourne's north.",
+  heroIntro:
+    "At Gladstone Park, in about 15 minutes, under local anaesthetic.",
+  heroWhere:
+    "after your Medicare rebate — at the Gladstone Park Superclinic on Gladstone Park Drive.",
+  operatingDoctor: "matt",
+  locations: {
+    heading: "Where to find us at Gladstone Park.",
+    lede: "One clinic, on Gladstone Park Drive, a few minutes from the Tullamarine Freeway.",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3157.3027033537983!2d144.88242571572574!3d-37.68908947977514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65b0827e021ed%3A0x704e3a15376994b9!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1610658698840!5m2!1sen!2sau",
+  },
+  cta: {
+    desktop: "/img/melbourne-cta.webp",
+    mobile: "/img/melbourne-cta-mobile.webp",
+  },
+  footerLine:
+    "No-scalpel, open-ended vasectomy at Gladstone Park, in Melbourne's north.",
+  clinics: [
+    {
+      suburb: "Gladstone Park",
+      region: "Northern Melbourne",
+      name: "Gladstone Park Superclinic",
+      address: "102 Gladstone Park Drive, Gladstone Park VIC 3043",
+      booking: `${TIMELY}/bb/book?location=173697&product=1833368%3ASV&staff=459829`,
+      mapsUrl: "https://www.google.com/maps?cid=8092469443229750457",
+      learnMore: "https://vasectomyaustralia.com.au/vasectomy-melbourne-gladstone-park/",
     },
   ],
 });

@@ -15,10 +15,14 @@ export type Clinic = {
   suburb: string;
   /** Region as VA's booking system labels it. Hidden when it equals suburb. */
   region: string;
-  /** The venue the clinic operates from. */
-  name: string;
+  /** The practice the clinic operates inside, where it sits within one.
+   *  Omitted when the rooms are Vasectomy Australia's own. */
+  name?: string;
   address: string;
   booking: string;
+  /** A direct line for this clinic, where it has one of its own. The 1800
+   *  number stays the practice-wide line on every page. */
+  phone?: string;
   /** The clinic's Google listing. Falls back to a maps search when absent. */
   mapsUrl?: string;
   /** Google Maps embed src for the card on a multi-clinic page. */
