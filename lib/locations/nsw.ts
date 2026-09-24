@@ -41,7 +41,8 @@ export const sydney: Location = loc({
       name: "The Sydney Vasectomy Centre",
       address: "Enmore Medical Practice, 134–146 Enmore Rd, Enmore NSW 2042",
       booking: `${TIMELY}/bb/book?location=157255&product=2451305%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=7543514749350888925",
+      mapsUrl: "https://g.page/r/Cd3F-oCy8q9oEAE",
+      mapEmbed: "https://maps.google.com/maps?cid=7543514749350888925&output=embed",
       learnMore: "https://vasectomyaustralia.com.au/sydney-vasectomy-centre/",
       flagship: true,
     },
@@ -51,6 +52,8 @@ export const sydney: Location = loc({
       name: "Sydney Vasectomy Centre – North Shore",
       address: "Suite 205, 781 Pacific Highway, Chatswood NSW 2067",
       booking: `${TIMELY}/bb/book?location=278584&product=3111900%3ASV&staff=288783`,
+      mapsUrl: "https://g.page/r/CQoeQ43gc16mEBM",
+      mapEmbed: "https://maps.google.com/maps?cid=11988146666386693642&output=embed",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-north-shore-chatswood/",
     },
     {
@@ -59,6 +62,8 @@ export const sydney: Location = loc({
       name: "Maroubra Family Doctors",
       address: "Shop T01A, 717 Anzac Parade, Maroubra NSW 2035",
       booking: `${TIMELY}/bb/book?location=223631&product=2226310%3ASV&staff=288783`,
+      mapsUrl: "https://g.page/r/CRXeEsUPJZ0mEAE",
+      mapEmbed: "https://maps.google.com/maps?cid=2782420894445919765&output=embed",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-sydney-maroubra/",
     },
     {
@@ -67,7 +72,8 @@ export const sydney: Location = loc({
       name: "Warringah Medical & Dental Centre",
       address: "10 Dale St, Brookvale NSW 2100",
       booking: `${TIMELY}/bb/book?location=183680&product=1842369%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=8484909919271390054",
+      mapsUrl: "https://g.page/r/CWYLXNmddMB1EBA",
+      mapEmbed: "https://maps.google.com/maps?cid=8484909919271390054&output=embed",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-northern-beaches-sydney/",
     },
     {
@@ -76,6 +82,8 @@ export const sydney: Location = loc({
       name: "The Hills Medical & Dental Centre",
       address: "3 Columbia Ct, Baulkham Hills NSW 2153",
       booking: `${TIMELY}/bb/book?location=187070&product=1842503%3ASV&staff=288783`,
+      mapsUrl: "https://g.page/r/CfzwYPpD_PpmEBA",
+      mapEmbed: "https://maps.google.com/maps?cid=7420520704939979004&output=embed",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-hills-district-sydney/",
     },
     {
@@ -84,6 +92,10 @@ export const sydney: Location = loc({
       name: "Pacific Medical Centre Blacktown",
       address: "23–27 First Ave, Blacktown NSW 2148",
       booking: `${TIMELY}/bb/book?location=173695&product=3012564%3ASV&staff=288783`,
+      mapsUrl: "https://g.page/vasectomy-australia-blacktown",
+      // Vanity listing link: no place id to embed, so the map searches the
+      // address. Swap in a cid embed if the listing's place id turns up.
+      mapEmbed: "https://maps.google.com/maps?q=Pacific%20Medical%20Centre%20Blacktown%2C%2023-27%20First%20Ave%2C%20Blacktown%20NSW%202148&output=embed",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-western-sydney/",
     },
     {
@@ -92,6 +104,8 @@ export const sydney: Location = loc({
       name: "Sports Medicine Institute",
       address: "Level 3, 531–533 Kingsway, Miranda NSW 2228",
       booking: `${TIMELY}/bb/book?location=232690&product=2336303%3ASV&staff=288783`,
+      mapsUrl: "https://g.page/r/CT36AMB0NRQPEAE",
+      mapEmbed: "https://maps.google.com/maps?cid=1086552185656900157&output=embed",
       learnMore: "https://vasectomyaustralia.com.au/sydney-sutherland-shire/",
     },
     {
@@ -100,6 +114,8 @@ export const sydney: Location = loc({
       name: "Penrith Medical Centre",
       address: "61–79 Henry St, Penrith NSW 2750",
       booking: `${TIMELY}/bb/book?location=220962&product=2193244%3ASV&staff=288783`,
+      mapsUrl: "https://g.page/r/CR7sEtezrZx0EBA",
+      mapEmbed: "https://maps.google.com/maps?cid=8402781992685595678&output=embed",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-penrith-sydney/",
     },
     {
@@ -108,6 +124,8 @@ export const sydney: Location = loc({
       name: "Campbelltown Medical and Dental Centre",
       address: "296 Queen St, Campbelltown NSW 2560",
       booking: `${TIMELY}/bb/book?location=185418&product=1842767%3ASV&staff=288783`,
+      mapsUrl: "https://g.page/r/CcNaBa6Qlwj5EBA",
+      mapEmbed: "https://maps.google.com/maps?cid=17944759362908412611&output=embed",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-campbelltown-sydney/",
     },
   ],
@@ -134,8 +152,6 @@ export const newcastle: Location = loc({
   locations: {
     heading: "Where to find us in Newcastle.",
     lede: "One clinic, on Darby Street in Cooks Hill, a few minutes from the city centre.",
-    mapEmbed:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.569089277725!2d151.768353!3d-32.9359814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b7315ca94a243ab%3A0x3ef6912fd084e313!2sVasectomy%20Australia%20-%20Newcastle!5e0!3m2!1sen!2sau!4v1790193918514!5m2!1sen!2sau",
   },
 
   cta: {
@@ -150,8 +166,10 @@ export const newcastle: Location = loc({
       region: "Newcastle",
       name: "Cooks Hill Healthcare Hub",
       address: "235 Darby St, Cooks Hill NSW 2300",
-      booking: `${TIMELY}/book?location=173696&product=3012567%3ASV&staff=288783`,
-      mapsUrl: "https://maps.app.goo.gl/qF7XHSNGZcBGaqoS8",
+      booking: `${TIMELY}/bb/book?location=173696&product=3012567%3ASV&staff=288783`,
+      mapsUrl: "https://g.page/r/CRPjhNAvkfY-EAE",
+      mapEmbed:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3348.569089277725!2d151.768353!3d-32.9359814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b7315ca94a243ab%3A0x3ef6912fd084e313!2sVasectomy%20Australia%20-%20Newcastle!5e0!3m2!1sen!2sau!4v1790193918514!5m2!1sen!2sau",
     },
   ],
 });
@@ -171,7 +189,6 @@ export const brookvale: Location = loc({
   locations: {
     heading: "Where to find us on the Northern Beaches.",
     lede: "One clinic, on Dale Street in Brookvale, a few minutes from Warringah Mall.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13267.34162473707!2d151.2680827!3d-33.7649189!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x75c0749dd95c0b66!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1607241484887!5m2!1sen!2sau",
   },
   footerLine: "No-scalpel, open-ended vasectomy on Sydney's Northern Beaches.",
   clinics: [
@@ -180,8 +197,9 @@ export const brookvale: Location = loc({
       region: "Northern Beaches",
       name: "Warringah Medical & Dental Centre",
       address: "10 Dale Street, Brookvale NSW 2100",
-      booking: `${TIMELY}/bb/book?location=183680&product=1747509%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=8484909919271390054",
+      booking: `${TIMELY}/bb/book?location=183680&product=1842369%3ASV&staff=288783`,
+      mapsUrl: "https://g.page/r/CWYLXNmddMB1EBA",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13267.34162473707!2d151.2680827!3d-33.7649189!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x75c0749dd95c0b66!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1607241484887!5m2!1sen!2sau",
     },
   ],
 });
@@ -201,7 +219,6 @@ export const centralCoast: Location = loc({
   locations: {
     heading: "Where to find us on the Central Coast.",
     lede: "One clinic, on Hills Street in Gosford, close to the station.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.12592124476!2d151.3442039!3d-33.4199613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b72cba8a39d02dd%3A0xaad580f4885271e5!2sVasectomy%20Australia%20-%20Central%20Coast!5e0!3m2!1sen!2s!4v1773283762369!5m2!1sen!2s",
   },
   footerLine: "No-scalpel, open-ended vasectomy across the Central Coast.",
   clinics: [
@@ -211,7 +228,8 @@ export const centralCoast: Location = loc({
       name: "Gynaecology Centres Australia",
       address: "16-18 Hills St, Gosford NSW 2250",
       booking: `${TIMELY}/bb/book?location=184309&product=1842379%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=12309886944234598885",
+      mapsUrl: "https://g.page/r/CeVxUoj0gNWqEAE",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.12592124476!2d151.3442039!3d-33.4199613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b72cba8a39d02dd%3A0xaad580f4885271e5!2sVasectomy%20Australia%20-%20Central%20Coast!5e0!3m2!1sen!2s!4v1773283762369!5m2!1sen!2s",
     },
   ],
 });
@@ -230,7 +248,6 @@ export const wollongong: Location = loc({
   locations: {
     heading: "Where to find us in Wollongong.",
     lede: "One clinic, at Dapto on the corner of the Princes Highway and Bong Bong Road.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3288.3354980734102!2d150.79131322371518!3d-34.49437785922899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b131966d3ff6d7f%3A0xd62ea7c8699b6829!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1611013324701!5m2!1sen!2sau",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Wollongong and the Illawarra.",
   clinics: [
@@ -240,7 +257,8 @@ export const wollongong: Location = loc({
       name: "Dapto Medical Centre",
       address: "Cnr Princes Highway and Bong Bong Rd, Dapto NSW 2530",
       booking: `${TIMELY}/bb/book?location=173703&product=1842615%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=15433457452252358697",
+      mapsUrl: "https://g.page/r/CSlom2nIpy7WEBA",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3288.3354980734102!2d150.79131322371518!3d-34.49437785922899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b131966d3ff6d7f%3A0xd62ea7c8699b6829!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1611013324701!5m2!1sen!2sau",
     },
   ],
 });
@@ -259,7 +277,6 @@ export const dubbo: Location = loc({
   locations: {
     heading: "Where to find us in Dubbo.",
     lede: "One clinic, on Windsor Parade, serving Dubbo and the Central West.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3374.1315621213735!2d148.62872831569305!3d-32.254542281132885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b0f71ce0643695d%3A0xeff2540e749f8fb1!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1610657228579!5m2!1sen!2sau",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Dubbo and the Central West.",
   clinics: [
@@ -269,7 +286,8 @@ export const dubbo: Location = loc({
       name: "Western Plains Medical Centre",
       address: "62 Windsor Parade, Dubbo NSW 2830",
       booking: `${TIMELY}/bb/book?location=191217&product=1840080%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=17289974340491644849",
+      mapsUrl: "https://g.page/r/CbGPn3QOVPLvEBA",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3374.1315621213735!2d148.62872831569305!3d-32.254542281132885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b0f71ce0643695d%3A0xeff2540e749f8fb1!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1610657228579!5m2!1sen!2sau",
     },
   ],
 });
@@ -288,7 +306,6 @@ export const portMacquarie: Location = loc({
   locations: {
     heading: "Where to find us in Port Macquarie.",
     lede: "One clinic, on the corner of Park Street and Hastings River Drive.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13617.27664812577!2d152.8991942!3d-31.4328793!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9dff96c4cd0767%3A0xa5bc9553d09bd967!2sVasectomy%20Australia%20-%20Port%20Macquarie!5e0!3m2!1sen!2sau!4v1692137818340!5m2!1sen!2sau",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Port Macquarie and the Mid North Coast.",
   clinics: [
@@ -298,7 +315,8 @@ export const portMacquarie: Location = loc({
       name: "Port Macquarie Medical & Dental Centre",
       address: "Cnr Park Street &, Hastings River Dr, Port Macquarie NSW 2444",
       booking: `${TIMELY}/bb/book?location=246051&product=2544155%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=11942584499094411623",
+      mapsUrl: "https://g.page/r/CWfZm9BTlbylEAE",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13617.27664812577!2d152.8991942!3d-31.4328793!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9dff96c4cd0767%3A0xa5bc9553d09bd967!2sVasectomy%20Australia%20-%20Port%20Macquarie!5e0!3m2!1sen!2sau!4v1692137818340!5m2!1sen!2sau",
     },
   ],
 });
@@ -317,7 +335,6 @@ export const tamworth: Location = loc({
   locations: {
     heading: "Where to find us in Tamworth.",
     lede: "One clinic, on Marius Street in East Tamworth.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13661.517744900304!2d150.9214083!3d-31.1269756!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xab57005e1e4d8349!2sVasectomy%20Australia%20-%20Tamworth!5e0!3m2!1sen!2sau!4v1675509711745!5m2!1sen!2sau",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Tamworth and the New England.",
   clinics: [
@@ -327,7 +344,8 @@ export const tamworth: Location = loc({
       name: "East Tamworth Medical Centre - Northwest Health",
       address: "279B Marius Street, Tamworth NSW 2340",
       booking: `${TIMELY}/bb/book?location=271434&product=2992840%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=12346337307694826313",
+      mapsUrl: "https://g.page/r/CUmDTR5eAFerEBM",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13661.517744900304!2d150.9214083!3d-31.1269756!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xab57005e1e4d8349!2sVasectomy%20Australia%20-%20Tamworth!5e0!3m2!1sen!2sau!4v1675509711745!5m2!1sen!2sau",
     },
   ],
 });
@@ -346,7 +364,6 @@ export const orange: Location = loc({
   locations: {
     heading: "Where to find us in Orange.",
     lede: "One clinic, on Peisley Street, a short walk from the centre of town.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13340.243479944973!2d149.1018887!3d-33.2910705!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b102d323d04be6b%3A0x4da43ee06616bf08!2sVasectomy%20Australia%20-%20Orange!5e0!3m2!1sen!2sau!4v1686657106670!5m2!1sen!2sau",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Orange and the Central Tablelands.",
   clinics: [
@@ -356,7 +373,8 @@ export const orange: Location = loc({
       name: "Orange Family Medical Centre",
       address: "95 Peisley Street, Orange NSW 2800",
       booking: `${TIMELY}/bb/book?location=270554&product=2976823%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=5594665770607361800",
+      mapsUrl: "https://g.page/r/CQi_FmbgPqRNEBM",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13340.243479944973!2d149.1018887!3d-33.2910705!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b102d323d04be6b%3A0x4da43ee06616bf08!2sVasectomy%20Australia%20-%20Orange!5e0!3m2!1sen!2sau!4v1686657106670!5m2!1sen!2sau",
     },
   ],
 });
@@ -375,7 +393,6 @@ export const waggaWagga: Location = loc({
   locations: {
     heading: "Where to find us in Wagga Wagga.",
     lede: "One clinic, on Baylis Street in the middle of town.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13054.102784252987!2d147.3684554!3d-35.1185527!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b1899226cc3bd81%3A0x1270d0221e3c41ba!2sVasectomy%20Australia%20-%20Wagga%20Wagga!5e0!3m2!1sen!2sau!4v1682656348711!5m2!1sen!2sau",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Wagga Wagga and the Riverina.",
   clinics: [
@@ -385,7 +402,8 @@ export const waggaWagga: Location = loc({
       name: "Wagga Wagga Medical Centre",
       address: "4 Baylis St, Wagga Wagga NSW 2650",
       booking: `${TIMELY}/bb/book?location=288039&product=4446057%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=1328790735029027258",
+      mapsUrl: "https://g.page/r/CbpBPB4i0HASEBM",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13054.102784252987!2d147.3684554!3d-35.1185527!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b1899226cc3bd81%3A0x1270d0221e3c41ba!2sVasectomy%20Australia%20-%20Wagga%20Wagga!5e0!3m2!1sen!2sau!4v1682656348711!5m2!1sen!2sau",
     },
   ],
 });
@@ -404,7 +422,6 @@ export const alburyWodonga: Location = loc({
   locations: {
     heading: "Where to find us in Albury–Wodonga.",
     lede: "One clinic, on Olive Street in Albury, minutes from the Wodonga side of the river.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12897.800937871682!2d146.9176482!3d-36.0825113!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b223f356eeb5085%3A0x1e668183f38bef27!2sVasectomy%20Australia%20-%20Albury%20Wodonga!5e0!3m2!1sen!2sca!4v1697115764409!5m2!1sen!2sca",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Albury–Wodonga and the border region.",
   clinics: [
@@ -414,7 +431,8 @@ export const alburyWodonga: Location = loc({
       name: "innovate Health Albury",
       address: "469 Olive St, Albury NSW 2640",
       booking: `${TIMELY}/bb/book?location=298720&product=4446060%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=2190580672489058087",
+      mapsUrl: "https://g.page/r/CSfvi_ODgWYeEBM",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12897.800937871682!2d146.9176482!3d-36.0825113!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b223f356eeb5085%3A0x1e668183f38bef27!2sVasectomy%20Australia%20-%20Albury%20Wodonga!5e0!3m2!1sen!2sca!4v1697115764409!5m2!1sen!2sca",
     },
   ],
 });
@@ -433,7 +451,6 @@ export const ballina: Location = loc({
   locations: {
     heading: "Where to find us in Ballina.",
     lede: "One clinic, on Tamar Street, serving Ballina, Byron and the Northern Rivers.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13976.035523176004!2d153.5577663!3d-28.8683539!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9081f5fe1c96b9%3A0xae632d58d4c928f4!2sVasectomy%20Australia%20-%20Northern%20Rivers!5e0!3m2!1sen!2sau!4v1680178140881!5m2!1sen!2sau",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Ballina and the Northern Rivers.",
   clinics: [
@@ -444,6 +461,7 @@ export const ballina: Location = loc({
       address: "32 Tamar Street, Ballina NSW 2478",
       booking: `${TIMELY}/bb/book?location=285442&product=3788076%3ASV&staff=459829`,
       mapsUrl: "https://www.google.com/maps?cid=12565937244844140788",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13976.035523176004!2d153.5577663!3d-28.8683539!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9081f5fe1c96b9%3A0xae632d58d4c928f4!2sVasectomy%20Australia%20-%20Northern%20Rivers!5e0!3m2!1sen!2sau!4v1680178140881!5m2!1sen!2sau",
     },
   ],
 });

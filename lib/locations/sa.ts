@@ -15,7 +15,6 @@ export const adelaide: Location = loc({
   locations: {
     heading: "Where to find us in Adelaide.",
     lede: "One clinic, on Magill Road at Beulah Park, a few minutes east of the city.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.7271420545635!2d138.63882771574632!3d-34.91329638038065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab0cba8c9c4ccb5%3A0x3e8e69ad7899fb88!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1610659743634!5m2!1sen!2sau",
   },
   cta: {
     desktop: "/img/adelaide-cta.webp",
@@ -29,7 +28,8 @@ export const adelaide: Location = loc({
       name: "Vasectomy Australia - Adelaide",
       address: "252A Magill Rd, Beulah Park SA 5067",
       booking: `${TIMELY}/bb/book?location=173700&product=2854571%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=4507656470818061192",
+      mapsUrl: "https://g.page/r/CYj7mXitaY4-EAE",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.7271420545635!2d138.63882771574632!3d-34.91329638038065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab0cba8c9c4ccb5%3A0x3e8e69ad7899fb88!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1610659743634!5m2!1sen!2sau",
     },
   ],
 });

@@ -28,7 +28,7 @@ export const melbourne: Location = loc({
       name: "The Melbourne Vasectomy Centre",
       address: "First Floor, 54 Commercial Road, Prahran, Melbourne VIC 3181",
       booking: `${TIMELY}/bb/book?location=199369&product=2909739%3ASV`,
-      mapsUrl: "https://www.google.com/maps?cid=9355928693394284610",
+      mapsUrl: "https://g.page/r/CUKgpqmT79aBEBM",
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12603.889615841434!2d144.9929394!3d-37.8375319!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x81d6ef93a9a6a042!2sVasectomy%20Australia%20-%20Melbourne%20Vasectomy%20Centre!5e0!3m2!1sen!2sau!4v1675510790460!5m2!1sen!2sau",
       learnMore: "https://vasectomyaustralia.com.au/melbourne-vasectomy-centre/",
       flagship: true,
@@ -39,7 +39,7 @@ export const melbourne: Location = loc({
       name: "Gladstone Park Superclinic",
       address: "102 Gladstone Park Drive, Gladstone Park VIC 3043",
       booking: `${TIMELY}/bb/book?location=173697&product=1833368%3ASV&staff=459829`,
-      mapsUrl: "https://www.google.com/maps?cid=8092469443229750457",
+      mapsUrl: "https://g.page/r/CbmUaTcVOk5wEBM",
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3157.3027033537983!2d144.88242571572574!3d-37.68908947977514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65b0827e021ed%3A0x704e3a15376994b9!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1610658698840!5m2!1sen!2sau",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-melbourne-gladstone-park/",
     },
@@ -48,8 +48,8 @@ export const melbourne: Location = loc({
       region: "Casey",
       name: "Casey Medical Centre",
       address: "Shop 102, 1S Morison Road, Clyde VIC 3978",
-      booking: `${TIMELY}/bb/book?location=294902&product=3390310%3ASV&staff=470719`,
-      mapsUrl: "https://www.google.com/maps?cid=12484750923136863194",
+      booking: `${TIMELY}/bb/book?location=294902&product=3390310%3ASV&staff=459829`,
+      mapsUrl: "https://g.page/r/CdqLzUrRvkKtEBM",
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12555.803510919906!2d145.3183992!3d-38.1180772!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad605c7c23c5233%3A0xad42bed14acd8bda!2sVasectomy%20Australia%20-%20Casey!5e0!3m2!1sen!2sau!4v1687873241918!5m2!1sen!2sau",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-casey/",
     },
@@ -70,7 +70,6 @@ export const geelong: Location = loc({
   locations: {
     heading: "Where to find us in Geelong.",
     lede: "One clinic, on High Street at Belmont, just south of the river.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12553.437003736457!2d144.3497715!3d-38.1318387!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad417c0cd2ff38f%3A0xe8150a58b5eb95bb!2sVasectomy%20Australia-%20Geelong!5e0!3m2!1sen!2sau!4v1682656840473!5m2!1sen!2sau",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Geelong and the Bellarine.",
   clinics: [
@@ -79,8 +78,9 @@ export const geelong: Location = loc({
       region: "Geelong",
       name: "Amara Medical Geelong",
       address: "Shop 1A, 110-112 High Street, Belmont, VIC 3216",
-      booking: `${TIMELY}/bb/book?location=288461&product=3279684%3ASV&staff=470719`,
-      mapsUrl: "https://www.google.com/maps?cid=16723284167435720123",
+      booking: `${TIMELY}/bb/book?location=288461&product=3279684%3ASV`,
+      mapsUrl: "https://g.page/r/CbuV67VYChXoEBM",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12553.437003736457!2d144.3497715!3d-38.1318387!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad417c0cd2ff38f%3A0xe8150a58b5eb95bb!2sVasectomy%20Australia-%20Geelong!5e0!3m2!1sen!2sau!4v1682656840473!5m2!1sen!2sau",
     },
   ],
 });
@@ -99,7 +99,6 @@ export const ballarat: Location = loc({
   locations: {
     heading: "Where to find us in Ballarat.",
     lede: "One clinic, on the Glenelg Highway at Delacombe.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12646.0744771902!2d143.8051193!3d-37.5899516!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad15d9078826125%3A0xef3fa7760b57295c!2sVasectomy%20Australia%20-%20Ballarat!5e0!3m2!1sen!2sjp!4v1693729654784!5m2!1sen!2sjp",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Ballarat and western Victoria.",
   clinics: [
@@ -108,8 +107,9 @@ export const ballarat: Location = loc({
       region: "Ballarat",
       name: "Carn-Brae Clinic",
       address: "328 Glenelg Hwy, Delacombe VIC 3358",
-      booking: `${TIMELY}/bb/book?location=302467&product=3529502%3ASV&staff=470719`,
-      mapsUrl: "https://www.google.com/maps?cid=17239682024035789148",
+      booking: `${TIMELY}/bb/book?location=302467&product=3529502%3ASV&staff=459829`,
+      mapsUrl: "https://g.page/r/CVwpVwt2pz_vEBM",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12646.0744771902!2d143.8051193!3d-37.5899516!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad15d9078826125%3A0xef3fa7760b57295c!2sVasectomy%20Australia%20-%20Ballarat!5e0!3m2!1sen!2sjp!4v1693729654784!5m2!1sen!2sjp",
     },
   ],
 });
@@ -128,7 +128,6 @@ export const bendigo: Location = loc({
   locations: {
     heading: "Where to find us in Bendigo.",
     lede: "One clinic, on Wellington Street at Strathfieldsaye, east of Bendigo.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12778.070043704276!2d144.3593129!3d-36.8061171!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad75de0a6ab0b9f%3A0xfb61ab7a846293ee!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1714993944397!5m2!1sen!2sau",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Bendigo and central Victoria.",
   clinics: [
@@ -138,7 +137,8 @@ export const bendigo: Location = loc({
       name: "Emu Creek Health Professionals",
       address: "955 Wellington Street, Strathfieldsaye VIC 3551",
       booking: `${TIMELY}/bb/book?location=324796&product=3940899%3ASV&staff=459829`,
-      mapsUrl: "https://www.google.com/maps?cid=18113947718956258286",
+      mapsUrl: "https://g.page/r/Ce6TYoR6q2H7EBM",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12778.070043704276!2d144.3593129!3d-36.8061171!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad75de0a6ab0b9f%3A0xfb61ab7a846293ee!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1714993944397!5m2!1sen!2sau",
     },
   ],
 });
@@ -157,7 +157,6 @@ export const shepparton: Location = loc({
   locations: {
     heading: "Where to find us in Shepparton.",
     lede: "One clinic, on Maude Street in the centre of town.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12849.549473886578!2d145.4015707!3d-36.3756155!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad885ebc5ab4bfb%3A0xe2d8004e212546f5!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1715223750515!5m2!1sen!2sau",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Shepparton and the Goulburn Valley.",
   clinics: [
@@ -168,6 +167,7 @@ export const shepparton: Location = loc({
       address: "92 Maude Street, Shepparton Victoria 3630",
       booking: `${TIMELY}/bb/book?location=327604&product=3996247%3ASV&staff=459829`,
       mapsUrl: "https://www.google.com/maps?cid=16345815183104755445",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12849.549473886578!2d145.4015707!3d-36.3756155!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad885ebc5ab4bfb%3A0xe2d8004e212546f5!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1715223750515!5m2!1sen!2sau",
     },
   ],
 });
@@ -186,7 +186,6 @@ export const casey: Location = loc({
   locations: {
     heading: "Where to find us in Casey.",
     lede: "One clinic, on Morison Road at Clyde, serving Casey and Cardinia.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12555.803510919906!2d145.3183992!3d-38.1180772!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad605c7c23c5233%3A0xad42bed14acd8bda!2sVasectomy%20Australia%20-%20Casey!5e0!3m2!1sen!2sau!4v1687873241918!5m2!1sen!2sau",
   },
   footerLine: "No-scalpel, open-ended vasectomy in Casey and Melbourne's south-east.",
   clinics: [
@@ -195,8 +194,9 @@ export const casey: Location = loc({
       region: "Casey",
       name: "Casey Medical Centre",
       address: "1S Morison Road, Clyde VIC 3978",
-      booking: `${TIMELY}/bb/book?location=294902&product=3390310%3ASV&staff=470719`,
-      mapsUrl: "https://www.google.com/maps?cid=12484750923136863194",
+      booking: `${TIMELY}/bb/book?location=294902&product=3390310%3ASV&staff=459829`,
+      mapsUrl: "https://g.page/r/CdqLzUrRvkKtEBM",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12555.803510919906!2d145.3183992!3d-38.1180772!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad605c7c23c5233%3A0xad42bed14acd8bda!2sVasectomy%20Australia%20-%20Casey!5e0!3m2!1sen!2sau!4v1687873241918!5m2!1sen!2sau",
     },
   ],
 });
@@ -224,8 +224,8 @@ export const regionalVic: Location = loc({
       region: "Geelong",
       name: "Amara Medical Geelong",
       address: "Shop 1A, 110–112 High Street, Belmont VIC 3216",
-      booking: `${TIMELY}/bb/book?location=288461&product=3279684%3ASV&staff=470719`,
-      mapsUrl: "https://www.google.com/maps?cid=16723284167435720123",
+      booking: `${TIMELY}/bb/book?location=288461&product=3279684%3ASV`,
+      mapsUrl: "https://g.page/r/CbuV67VYChXoEBM",
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12553.437003736457!2d144.3497715!3d-38.1318387!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad417c0cd2ff38f%3A0xe8150a58b5eb95bb!2sVasectomy%20Australia-%20Geelong!5e0!3m2!1sen!2sau!4v1682656840473!5m2!1sen!2sau",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-geelong/",
     },
@@ -234,8 +234,8 @@ export const regionalVic: Location = loc({
       region: "Ballarat",
       name: "Carn-Brae Clinic",
       address: "328 Glenelg Hwy, Delacombe VIC 3358",
-      booking: `${TIMELY}/bb/book?location=302467&product=3529502%3ASV&staff=470719`,
-      mapsUrl: "https://www.google.com/maps?cid=17239682024035789148",
+      booking: `${TIMELY}/bb/book?location=302467&product=3529502%3ASV&staff=459829`,
+      mapsUrl: "https://g.page/r/CVwpVwt2pz_vEBM",
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12646.0744771902!2d143.8051193!3d-37.5899516!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad15d9078826125%3A0xef3fa7760b57295c!2sVasectomy%20Australia%20-%20Ballarat!5e0!3m2!1sen!2sjp!4v1693729654784!5m2!1sen!2sjp",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-ballarat/",
     },
@@ -245,7 +245,7 @@ export const regionalVic: Location = loc({
       name: "Emu Creek Health Professionals",
       address: "955 Wellington Street, Strathfieldsaye VIC 3551",
       booking: `${TIMELY}/bb/book?location=324796&product=3940899%3ASV&staff=459829`,
-      mapsUrl: "https://www.google.com/maps?cid=18113947718956258286",
+      mapsUrl: "https://g.page/r/Ce6TYoR6q2H7EBM",
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12778.070043704276!2d144.3593129!3d-36.8061171!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad75de0a6ab0b9f%3A0xfb61ab7a846293ee!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1714993944397!5m2!1sen!2sau",
       learnMore: "https://vasectomyaustralia.com.au/bendigo-vasectomy",
     },
@@ -255,7 +255,7 @@ export const regionalVic: Location = loc({
       name: "innovate Health Albury",
       address: "469 Olive St, Albury NSW 2640",
       booking: `${TIMELY}/bb/book?location=298720&product=4446060%3ASV&staff=288783`,
-      mapsUrl: "https://www.google.com/maps?cid=2190580672489058087",
+      mapsUrl: "https://g.page/r/CSfvi_ODgWYeEBM",
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12897.800937871682!2d146.9176482!3d-36.0825113!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b223f356eeb5085%3A0x1e668183f38bef27!2sVasectomy%20Australia%20-%20Albury%20Wodonga!5e0!3m2!1sen!2sca!4v1697115764409!5m2!1sen!2sca",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-albury-wodonga/",
     },
@@ -285,7 +285,6 @@ export const gladstonePark: Location = loc({
   locations: {
     heading: "Where to find us at Gladstone Park.",
     lede: "One clinic, on Gladstone Park Drive, a few minutes from the Tullamarine Freeway.",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3157.3027033537983!2d144.88242571572574!3d-37.68908947977514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65b0827e021ed%3A0x704e3a15376994b9!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1610658698840!5m2!1sen!2sau",
   },
   cta: {
     desktop: "/img/melbourne-cta.webp",
@@ -300,7 +299,8 @@ export const gladstonePark: Location = loc({
       name: "Gladstone Park Superclinic",
       address: "102 Gladstone Park Drive, Gladstone Park VIC 3043",
       booking: `${TIMELY}/bb/book?location=173697&product=1833368%3ASV&staff=459829`,
-      mapsUrl: "https://www.google.com/maps?cid=8092469443229750457",
+      mapsUrl: "https://g.page/r/CbmUaTcVOk5wEBM",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3157.3027033537983!2d144.88242571572574!3d-37.68908947977514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65b0827e021ed%3A0x704e3a15376994b9!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1610658698840!5m2!1sen!2sau",
       learnMore: "https://vasectomyaustralia.com.au/vasectomy-melbourne-gladstone-park/",
     },
   ],

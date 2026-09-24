@@ -335,7 +335,7 @@ export function Locations() {
           </button>
         </div>
 
-        {locations.mapEmbed ? (
+        {clinics[0].mapEmbed && single ? (
           /* Tinted panel behind the iframe: privacy extensions and consent
              tools block these embeds routinely, and a blocked map should read
              as a quiet panel rather than a blank white rectangle. The address
@@ -345,7 +345,7 @@ export function Locations() {
             className="relative mt-12 h-[320px] overflow-hidden rounded-3xl bg-sand md:h-[440px]"
           >
             <iframe
-              src={locations.mapEmbed}
+              src={clinics[0].mapEmbed}
               title={t.locations.mapTitle(clinics[0].name, clinics[0].address)}
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"

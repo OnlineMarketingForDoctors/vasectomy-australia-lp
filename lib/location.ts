@@ -25,7 +25,10 @@ export type Clinic = {
   phone?: string;
   /** The clinic's Google listing. Falls back to a maps search when absent. */
   mapsUrl?: string;
-  /** Google Maps embed src for the card on a multi-clinic page. */
+  /**
+   * Google Maps embed src. It pins this clinic's own Google listing, so the
+   * map and the "Open in Google Maps" link always point at the same place.
+   */
   mapEmbed?: string;
   learnMore?: string;
   flagship?: boolean;
@@ -79,8 +82,6 @@ export type Location = {
     lede: string;
     /** The wide picture above the clinics. Omitted when a map takes its place. */
     image?: { src: string; alt: string };
-    /** Google Maps embed src, shown instead of the picture. */
-    mapEmbed?: string;
   };
 
   cta: { desktop: string; mobile: string };
