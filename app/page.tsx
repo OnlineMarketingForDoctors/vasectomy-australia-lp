@@ -11,6 +11,16 @@ export const metadata: Metadata = {
   robots: ROBOTS_DIRECTIVE,
 };
 
+/**
+ * The host the printed links point at. Vercel sets this on every deployment,
+ * production and preview alike, so a preview of this index still lists the
+ * addresses you would paste into a campaign rather than its own one-off
+ * hostname. Falls back to the production domain when built outside Vercel.
+ */
+const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "https://vasectomy-australia-lp.vercel.app";
+
 const STATE_NAMES: Record<string, string> = {
   NSW: "New South Wales",
   VIC: "Victoria",
@@ -67,33 +77,45 @@ export default function Home() {
         <h2 className="u-display mt-14 text-title">{STATE_NAMES[state] ?? state}</h2>
         <ul className="mt-5 max-w-3xl">
           {group.map((p) => (
-            <li key={p.slug} className="border-t border-line">
-              <Link
-                href={p.slug}
-                className="group flex items-center gap-6 py-6 transition-colors hover:bg-bone/60"
-              >
-                <span className="min-w-0 flex-1">
-                  <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                    <span className="u-display text-title">{p.city}</span>
-                    <span className="u-eyebrow">{p.state}</span>
-                    <span className="text-[13px] text-ink-soft">
-                      {p.clinics.length} clinic{p.clinics.length === 1 ? "" : "s"}
-                    </span>
+            <li
+              key={p.slug}
+              className="group relative flex items-center gap-6 border-t border-line py-6 transition-colors hover:bg-bone/60"
+            >
+              <div className="min-w-0 flex-1">
+                <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  {/* The row is one hit area: this link's ::after covers the
+                      whole <li>, which keeps the markup to one anchor per
+                      destination rather than nesting the URL inside it. */}
+                  <Link
+                    href={p.slug}
+                    className="u-display text-title after:absolute after:inset-0 after:content-['']"
+                  >
+                    {p.city}
+                  </Link>
+                  <span className="u-eyebrow">{p.state}</span>
+                  <span className="text-[13px] text-ink-soft">
+                    {p.clinics.length} clinic{p.clinics.length === 1 ? "" : "s"}
                   </span>
-                  <span className="mt-1.5 block max-w-[52ch] text-[15px] leading-relaxed text-ink-soft">
-                    {p.indexSummary}
-                  </span>
-                  <span className="mt-2 block font-mono text-[12.5px] text-ink-soft/80">
-                    {p.slug}
-                  </span>
-                </span>
-                <svg
-                  width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"
-                  className="shrink-0 text-teal transition-transform duration-200 group-hover:translate-x-1"
+                </p>
+                <p className="mt-1.5 max-w-[52ch] text-[15px] leading-relaxed text-ink-soft">
+                  {p.indexSummary}
+                </p>
+                {/* Lifted above the overlay so it can be clicked, right-clicked
+                    and copied as the address it reads. */}
+                <a
+                  href={`${SITE_URL}${p.slug}`}
+                  className="relative z-10 mt-2 inline-block font-mono text-[12.5px] text-ink-soft/80 underline decoration-line underline-offset-4 transition [overflow-wrap:anywhere] hover:text-teal hover:decoration-teal"
                 >
-                  <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
+                  {SITE_URL}
+                  {p.slug}
+                </a>
+              </div>
+              <svg
+                width="20" height="20" viewBox="0 0 18 18" fill="none" aria-hidden="true"
+                className="shrink-0 text-teal transition-transform duration-200 group-hover:translate-x-1"
+              >
+                <path d="M3 9h12M10 4l5 5-5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </li>
           ))}
           <li className="border-t border-line" />
