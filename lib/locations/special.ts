@@ -15,7 +15,7 @@ export const chinese: Location = loc({
   operatingDoctor: "geoff",
   locations: {
     heading: "Three centres, with a Chinese language option.",
-    lede: "Sydney at Enmore, Melbourne at Prahran, and Adelaide at Beulah Park.",
+    lede: "Sydney at Enmore, Melbourne at Gladstone Park, and Adelaide at Beulah Park.",
   },
   footerLine: "No-scalpel, open-ended vasectomy with a Chinese language option.",
   clinics: [
@@ -31,14 +31,14 @@ export const chinese: Location = loc({
       flagship: true,
     },
     {
-      suburb: "Prahran",
+      suburb: "Gladstone Park",
       region: "Melbourne",
-      name: "The Melbourne Vasectomy Centre",
-      address: "First Floor, 54 Commercial Road, Prahran, Melbourne VIC 3181",
-      booking: `${TIMELY}/bb/book?location=199369&product=2909739%3ASV`,
-      mapsUrl: "https://www.google.com/maps?cid=9355928693394284610",
-      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12603.889615841434!2d144.9929394!3d-37.8375319!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x81d6ef93a9a6a042!2sVasectomy%20Australia%20-%20Melbourne%20Vasectomy%20Centre!5e0!3m2!1sen!2sau!4v1675510790460!5m2!1sen!2sau",
-      learnMore: "https://vasectomyaustralia.com.au/melbourne-vasectomy-centre/",
+      name: "Gladstone Park Superclinic",
+      address: "102 Gladstone Park Drive, Gladstone Park VIC 3043",
+      booking: `${TIMELY}/bb/book?location=173697&product=1833368%3ASV&staff=459829`,
+      mapsUrl: "https://www.google.com/maps?cid=8092469443229750457",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3157.3027033537983!2d144.88242571572574!3d-37.68908947977514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65b0827e021ed%3A0x704e3a15376994b9!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1610658698840!5m2!1sen!2sau",
+      learnMore: "https://vasectomyaustralia.com.au/vasectomy-melbourne-gladstone-park/",
     },
     {
       suburb: "Beulah Park",
@@ -111,7 +111,7 @@ export const chineseZh: Location = loc({
   heroWhere: "— 悉尼、墨尔本与阿德莱德三家中心，均可提供中文服务。",
   locations: {
     heading: "三家中心，均提供中文服务。",
-    lede: "悉尼 Enmore、墨尔本 Prahran、阿德莱德 Beulah Park。",
+    lede: "悉尼 Enmore、墨尔本 Gladstone Park、阿德莱德 Beulah Park。",
   },
   footerLine: "提供中文服务的无刀口、开放式输精管结扎手术。",
 });
