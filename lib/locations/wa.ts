@@ -70,11 +70,14 @@ export const perth: Location = loc({
     {
       suburb: "Nedlands",
       region: "Western Suburbs",
-      name: "Nedlands Medical Centre",
-      address: "Suite 25, 88 Broadway, Nedlands WA 6009",
+      name: "Calen Health",
+      address: "51 Hampden Rd, Nedlands WA 6009",
       booking: `${TIMELY}/bb/book?location=374226&product=4895321%3ASV&staff=459829`,
       mapsUrl: "https://g.page/r/CRcj9dYE_f3nEBM",
-      mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3384.378976916076!2d115.81331010000001!3d-31.977740499999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32a55f3ce7616d%3A0xe7fdfd04d6f52317!2sVasectomy%20Australia%20-%20Inner%20West%20Perth!5e0!3m2!1sen!2suk!4v1759705504477!5m2!1sen!2suk",
+      // The place embed this replaced had the old Broadway coordinates baked
+      // in. Resolving the listing by id instead means the map follows wherever
+      // Google has the clinic, so it cannot disagree with the link above.
+      mapEmbed: "https://maps.google.com/maps?cid=16716795589097235223&output=embed",
       learnMore: "https://vasectomyaustralia.com.au/inner-west-perth/",
     },
   ],
