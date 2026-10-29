@@ -164,7 +164,7 @@ export const shepparton: Location = loc({
       suburb: "Shepparton",
       region: "Shepparton",
       name: "Maude Street Medical",
-      address: "92 Maude Street, Shepparton Victoria 3630",
+      address: "92 Maude Street, Shepparton VIC 3630",
       booking: `${TIMELY}/bb/book?location=327604&product=3996247%3ASV&staff=459829`,
       mapsUrl: "https://www.google.com/maps?cid=16345815183104755445",
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12849.549473886578!2d145.4015707!3d-36.3756155!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad885ebc5ab4bfb%3A0xe2d8004e212546f5!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1715223750515!5m2!1sen!2sau",
@@ -208,14 +208,14 @@ export const regionalVic: Location = loc({
   state: "VIC",
   eyebrow: "Regional Victoria",
   metaTitle: "Vasectomy Regional Victoria | No-Scalpel Vasectomy — Vasectomy Australia",
-  metaDescription: "No-scalpel, open-ended vasectomy across regional Victoria. About 15 minutes under local anaesthetic, $597 out of pocket after your Medicare rebate. Geelong, Ballarat, Bendigo and Wodonga.",
-  indexSummary: "No-scalpel vasectomy across regional Victoria — Geelong, Ballarat, Bendigo and Wodonga.",
+  metaDescription: "No-scalpel, open-ended vasectomy across regional Victoria. About 15 minutes under local anaesthetic, $597 out of pocket after your Medicare rebate. Geelong, Ballarat, Bendigo, Shepparton and Wodonga.",
+  indexSummary: "No-scalpel vasectomy across regional Victoria — Geelong, Ballarat, Bendigo, Shepparton and Wodonga.",
   heroIntro: "Across regional Victoria, in about 15 minutes, under local anaesthetic.",
-  heroWhere: "after your Medicare rebate — at our clinics in Geelong, Ballarat, Bendigo and Wodonga.",
+  heroWhere: "after your Medicare rebate — at our clinics in Geelong, Ballarat, Bendigo, Shepparton and Wodonga.",
   operatingDoctor: "matt",
   locations: {
-    heading: "Four clinics across regional Victoria.",
-    lede: "Geelong, Ballarat, Bendigo and Wodonga, with the same fee and the same doctors.",
+    heading: "Five clinics across regional Victoria.",
+    lede: "Geelong, Ballarat, Bendigo, Shepparton and Wodonga, with the same fee and the same doctors.",
   },
   footerLine: "No-scalpel, open-ended vasectomy across regional Victoria.",
   clinics: [
@@ -248,6 +248,18 @@ export const regionalVic: Location = loc({
       mapsUrl: "https://g.page/r/Ce6TYoR6q2H7EBM",
       mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12778.070043704276!2d144.3593129!3d-36.8061171!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad75de0a6ab0b9f%3A0xfb61ab7a846293ee!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1714993944397!5m2!1sen!2sau",
       learnMore: "https://vasectomyaustralia.com.au/bendigo-vasectomy",
+    },
+    {
+      suburb: "Shepparton",
+      region: "Shepparton",
+      name: "Maude Street Medical",
+      address: "92 Maude Street, Shepparton VIC 3630",
+      booking: `${TIMELY}/bb/book?location=327604&product=3996247%3ASV&staff=459829`,
+      mapsUrl: "https://www.google.com/maps?cid=16345815183104755445",
+      mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12849.549473886578!2d145.4015707!3d-36.3756155!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad885ebc5ab4bfb%3A0xe2d8004e212546f5!2sVasectomy%20Australia!5e0!3m2!1sen!2sau!4v1715223750515!5m2!1sen!2sau",
+      // The other four send people to the main site; Shepparton has a landing
+      // page of its own, so the card stays on this site.
+      learnMore: "/shepparton",
     },
     {
       suburb: "Albury",

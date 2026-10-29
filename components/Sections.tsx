@@ -299,6 +299,17 @@ export function Recovery() {
 /* --------------------------------------------------------------- locations */
 
 /** The clinic's own Google listing where we have it, a search otherwise. */
+/**
+ * A new tab for somewhere else, the same tab for a page on this site: a
+ * clinic card can link either to the practice's main site or to that
+ * clinic's own landing page here.
+ */
+function external(href: string) {
+  return href.startsWith("/")
+    ? {}
+    : { target: "_blank", rel: "noopener noreferrer" };
+}
+
 /** tel: link for a clinic's own number, spaces and all. */
 function telHref(phone: string) {
   return `tel:${phone.replace(/[^\d+]/g, "")}`;
@@ -484,8 +495,7 @@ export function Locations() {
               <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
                 <a
                   href={c.learnMore ?? mapsSearchUrl(c)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...external(c.learnMore ?? mapsSearchUrl(c))}
                   className="group inline-flex items-center gap-1.5 text-[14px] font-semibold text-teal"
                 >
                   {c.learnMore ? t.locations.clinicDetails : t.locations.openInMaps}
